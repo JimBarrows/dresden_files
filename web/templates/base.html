@@ -37,7 +37,12 @@
 				<a href="/" class="brand">Dresden Files</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><a href="/city">City</a></li>
+						<li id="city_dropdown" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">City<b class="caret"></b></a>
+							<ul id=city_dropdown_menu" class="dropdown-menu">
+								<li><a href="/city/create">Create</a></li>
+							</ul> <!-- city_dropdown_menu -->
+						</li> <!-- city_dropdown -->
 						<li><a href="#">Character</a></li>
 					</ul> <!-- nav -->
 				</div> <!-- nav-collapse -->
