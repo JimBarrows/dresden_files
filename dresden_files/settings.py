@@ -1,7 +1,8 @@
 # Django settings for dresden_files project.
 import os.path
 
-PROJECT_DIR = os.path.join( os.path.dirname( __file__), '/..')
+APP_DIR = os.path.dirname( __file__) 
+PROJECT_DIR = os.path.join( APP_DIR, '..')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -73,7 +74,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join( PROJECT_DIR, '/web/static')
+    os.path.join( PROJECT_DIR, 'web/static'),
 )
 
 # List of finder classes that know how to find static files in
