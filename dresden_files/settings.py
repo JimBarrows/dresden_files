@@ -125,7 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'city_creation',
+    'city',
 )
 
 # A sample logging configuration. The only tangible logging

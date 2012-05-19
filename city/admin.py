@@ -1,4 +1,4 @@
-from city_creation.models import Aspect, City, Concept
+from city.models import Aspect, City, Concept
 from django.contrib import admin
 
 class ConceptInline(admin.StackedInline):

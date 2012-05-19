@@ -4,7 +4,7 @@ from views import index
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^city/create/', include( 'city_creation.urls')),
+	url(r'^city/', include( 'city.urls')),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^$',index),
