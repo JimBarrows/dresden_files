@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}City List{% endblock %}
+
+{% block content %}
+<div class="row"> <div class="span12"> <h1>City Sheet (High Level)</h1> </div> </div>
+
+<div id="header_row" class="row">
+	<div class="span6"><h1>{{ city.name }}</h1></div>
+	<div class="span6"><h1>{{ city.campaign_title }}</h1></div>
+</div> <!-- header_row -->
+
+<div class="row"> <div class="span12"> <h2>City-Wide Themes and Threats</h2> </div> </div>
+{% for concept in city.concept_set.all %}
+		<!-- column num {% cycle 1 2 3 as column_number%} -->
+		{% if column_number == 1 %}
+			<div id="theme_threat_row" class="row">
+		{% endif %}
+		<div id="theme_threat_{{forloop.counter}}" class="span4">
+		<h3>{{concept.get_theme_display}}</h3>
+		<h4>The <em>Idea</h4>
+		<p>{{concept.idea}}</p>
+		<h4>The <em>Aspects</h4>
+		<ul>
+			{% for aspect in concept.aspect_set.all %}
+				<li>{{aspect.name}}</li>
+			{% endfor %}
+		</ul>
+		<h4>The <em>Faces</h4>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Concept</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for face in concept.face_set.all %}
+				<tr>
+					<td>{{face.name}}</td>
+					<td>{{face.concept}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		</div> <!-- theme_threat_{{forloop.counter}} -->
+		{% if  column_number == 3 %}
+			</div> <!-- theme_threat_row -->
+		{% endif %}
+	{% endfor %}
+
+<div class="row"> <div class="span12"> <h2>The Balance of Power</h2> </div> </div>
+
+<div class="row"> <div class="span12"> <h3>The Status Quo</h3> </div> </div>
+
+<div id="balance_of_power" class="row">
+		<div id="supernatural_status_quo" class="span6">
+			<h4>What is the <em>Supernatural</em> status quo?</h4>
+			<p>
+			{{city.supernatural_status_quo}}
+			</p>
+		</div><!-- supernatural_status_quo -->
+		<div id="mundane_status_quo" class="span6">
+			<h4>What is the <em>Mundane</em> status quo?</h4>
+			<p>
+			{{city.mundane_status_quo}}
+			</p>
+		</div><!-- mundane_status_quo -->
+</div> <!-- balance_of_power -->
+{% endblock %}

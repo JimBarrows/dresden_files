@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}City List{% endblock %}
+
+{% block content %}
+<h1>City List</h1>
+{% if city_list %}
+	<ul>
+		{% for city in city_list %}
+			<li><a href="/city/{{city.id}}/">{{city.name}}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No cities have been created</p>
+{% endif %}
+{% endblock %}
