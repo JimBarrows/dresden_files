@@ -23,6 +23,7 @@ class Concept(models.Model):
 class Aspect(models.Model):
 	name = models.CharField(max_length=75)
 	concept = models.ForeignKey(Concept)
+	location = models.ForeignKey('Location')
 	def __unicode__(self):
 		return self.name
 
@@ -32,8 +33,21 @@ class Face(models.Model):
 	motivation = models.CharField(max_length=200)
 	relationships = models.ManyToManyField('Face', through="FaceRelationship")
 	concept = models.ForeignKey(Concept)
+	location = models.ForeignKey('Location')
+	def __unicode__(self):
+		return self.name
 
 class FaceRelationship(models.Model):
 	name = models.CharField(max_length=200)
 	from_face = models.ForeignKey('Face', related_name='from_face')
 	to_face = models.ForeignKey('Face', related_name='to_face')
+	def __unicode__(self):
+		return self.name
+
+class Location(models.Model):
+	name = models.CharField(max_length=200)
+	description = models.TextField()
+	theme = models.CharField(max_length=2, choices=THEME_OR_THREAT_CHOICES)
+	idea = models.CharField(max_length=200)
+	def __unicode__(self):
+		return self.name

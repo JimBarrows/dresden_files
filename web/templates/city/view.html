@@ -24,6 +24,8 @@
 		<ul>
 			{% for aspect in concept.aspect_set.all %}
 				<li>{{aspect.name}}</li>
+			{% empty %}
+				<li>There are no aspects.</li>
 			{% endfor %}
 		</ul>
 		<h4>The <em>Faces</h4>
@@ -36,18 +38,24 @@
 			</thead>
 			<tbody>
 				{% for face in concept.face_set.all %}
-				<tr>
-					<td>{{face.name}}</td>
-					<td>{{face.concept}}</td>
-				</tr>
+					<tr>
+						<td>{{face.name}}</td>
+						<td>{{face.concept}}</td>
+					</tr>
+				{% empty %}
+					<tr>
+						<td colspan="2">There are no faces</td>
+					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 		</div> <!-- theme_threat_{{forloop.counter}} -->
-		{% if  column_number == 3 %}
+		{% if  column_number == 3 or forloop.last %}
 			</div> <!-- theme_threat_row -->
 		{% endif %}
-	{% endfor %}
+	{% empty %}
+		<p>There are no themes or threats.</p>	
+{% endfor %}
 
 <div class="row"> <div class="span12"> <h2>The Balance of Power</h2> </div> </div>
 
