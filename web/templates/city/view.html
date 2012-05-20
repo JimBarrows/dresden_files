@@ -75,4 +75,67 @@
 			</p>
 		</div><!-- mundane_status_quo -->
 </div> <!-- balance_of_power -->
+
+
+<div class="row"> <div class="span12"> <h3>Locations</h3> </div> </div>
+<div id="locations" class="row">
+<div class="span12">
+	{% for location in city.location_set.all %}
+		<!-- column number {%cycle 1 2 3 as column_number %} -->
+		{% if column_number == 1 %}
+			<div class="row">
+		{% endif %}
+		<div id="location_{{column_number}}_{{forloop.counter}}" class="span4">
+			<h4>{{location.name}}</h4>
+			{{location.description}}
+			<p><em>{{location.get_theme_display}}</em></p>
+			<h5>The idea</h5>
+			{{location.idea}}
+			<h5>The Aspect</h5>
+			<ul id="location_aspect_list">
+			{% for aspect in location.aspect_set.all %}
+				<li id="location_aspect_{{forloop.counter}}">
+					{{aspect.name}}
+				</li> <!-- location_aspect_{{forloop.counter}} -->
+				{% empty %}
+					<li>There are no spects</li>
+			{% endfor %}
+			</ul><!-- location_aspect_list -->
+			<h5>The Faces</h5>
+			<table id="location_face_list">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Concept</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for face in location.face_set.all %}
+						<tr id="location_face_{{forloop.counter}}">
+							<td>
+								{{face.name}}
+							</td>
+							<td>
+								{{face.concept}}
+							</td>
+						</tr> <!-- location_face_{{forloop.counter}} -->
+						{% empty %}
+							<tr>
+								<td colspan="2">
+									There are no faces
+								</td>
+							</tr>
+					{% endfor %}
+				</tbody>
+			</table><!-- location_face_list -->
+		</div> <!-- location_{{column_number}}_{{forloop.counter}} -->
+		{% if column_number == 3 or forloop.last %}
+			</div> <!-- row -->
+		{% endif %}
+		{% empty %}
+			<div class="span12"><p>There are no locations</p></div>
+	{% endfor %}
+	</div><!-- span12 -->
+</div> <!-- locations -->
+
 {% endblock %}
