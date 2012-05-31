@@ -2,10 +2,20 @@
 
 {% block title %}Create City{% endblock %}
 {% block city_pre %}
-	<form id="create_city" action="" method ="post">
+	<form id="create_city" action="/city/save/" method ="post">
 {% endblock %}
-{% block name %}{{ city_form.name.label }}:{{ city_form.name }}{% endblock %}
-{% block campaign_title %}{{ city_form.campaign.label }}{{ city_form.campaign}} {% endblock %}
+{% block name %}
+	{{ city_form.name.label }}:{{ city_form.name }} 
+	{% if city_form.name.errors %} 
+		<div class="alert alert-error">{{city_form.name.errors}}</div>
+	{% endif %}
+{% endblock %}
+{% block campaign_title %}
+	{{ city_form.campaign.label }}: {{ city_form.campaign}}   
+	{% if city_form.campaign.errors %}
+		<div class="alert alert-error">{{city_form.campaign.errors}}</div>
+	{% endif %}
+{% endblock %}
 {% block themes_and_threats %}
 	{{ city_form.concepts.management_form }}
 	{% for concept_form in city_form.concepts %}
@@ -50,11 +60,19 @@
 	{% endfor %}
 {% endblock %}
 {% block supernatural_status_quo %}
+	{% if city_form.supernatural_status_quo.errors %}
+		<div class="alert alert-error">{{ city_form.supernatural_status_quo.errors }}</div>
+	{% endif %}
 	{{ city_form.supernatural_status_quo }}
 {% endblock %}
 {% block mundane_status_quo %}
+	{% if city_form.mundane_status_quo.errors %}
+		<div class="alert alert-error">{{ city_form.mundane_status_quo.errors }}</div>
+	{% endif %}
 	{{ city_form.mundane_status_quo }}
 {% endblock %}
 {% block city_post %}
+	{% csrf_token %} 
+	<button type="submit">Save</button>
 	</form><!-- create_city -->
 {% endblock %}
