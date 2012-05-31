@@ -1,17 +1,12 @@
-{% extends "base.html" %}
+{% extends "city/city_template.html" %}
 
-{% block title %}City List{% endblock %}
+{% block title %}City Sheet - {{city.name}}{% endblock %}
 
-{% block content %}
-<div class="row"> <div class="span12"> <h1>City Sheet (High Level)</h1> </div> </div>
+{% block name %}<h1>{{ city.name }}{% endblock %}
+{% block campaign_title %}<h1>{{ city.campaign_title }}</h1>{% endblock %}
 
-<div id="header_row" class="row">
-	<div class="span6"><h1>{{ city.name }}</h1></div>
-	<div class="span6"><h1>{{ city.campaign_title }}</h1></div>
-</div> <!-- header_row -->
-
-<div class="row"> <div class="span12"> <h2>City-Wide Themes and Threats</h2> </div> </div>
-{% for concept in city.concept_set.all %}
+{%block themes_and_threats %}
+	{% for concept in city.concept_set.all %}
 		<!-- column num {% cycle 1 2 3 as column_number%} -->
 		{% if column_number == 1 %}
 			<div id="theme_threat_row" class="row">
@@ -28,7 +23,7 @@
 				<li>There are no aspects.</li>
 			{% endfor %}
 		</ul>
-		<h4>The <em>Faces</h4>
+		<h4>The <em>Faces</em></h4>
 		<table>
 			<thead>
 				<tr>
@@ -55,31 +50,17 @@
 		{% endif %}
 	{% empty %}
 		<p>There are no themes or threats.</p>	
-{% endfor %}
+	{% endfor %}
+{% endblock %}
 
-<div class="row"> <div class="span12"> <h2>The Balance of Power</h2> </div> </div>
+{% block supernatural_status_quo %}
+	{{city.mundane_status_quo}}
+{% endblock %}
+{% block mundane_status_quo %}
+	{{city.mundane_status_quo}}
+{% endblock %}
 
-<div class="row"> <div class="span12"> <h3>The Status Quo</h3> </div> </div>
-
-<div id="balance_of_power" class="row">
-		<div id="supernatural_status_quo" class="span6">
-			<h4>What is the <em>Supernatural</em> status quo?</h4>
-			<p>
-			{{city.supernatural_status_quo}}
-			</p>
-		</div><!-- supernatural_status_quo -->
-		<div id="mundane_status_quo" class="span6">
-			<h4>What is the <em>Mundane</em> status quo?</h4>
-			<p>
-			{{city.mundane_status_quo}}
-			</p>
-		</div><!-- mundane_status_quo -->
-</div> <!-- balance_of_power -->
-
-
-<div class="row"> <div class="span12"> <h3>Locations</h3> </div> </div>
-<div id="locations" class="row">
-<div class="span12">
+{% block locations %}
 	{% for location in city.location_set.all %}
 		<!-- column number {%cycle 1 2 3 as column_number %} -->
 		{% if column_number == 1 %}
@@ -135,7 +116,4 @@
 		{% empty %}
 			<div class="span12"><p>There are no locations</p></div>
 	{% endfor %}
-	</div><!-- span12 -->
-</div> <!-- locations -->
-
 {% endblock %}

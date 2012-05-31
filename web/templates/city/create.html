@@ -1,0 +1,60 @@
+{% extends "city/city_template.html" %}
+
+{% block title %}Create City{% endblock %}
+{% block city_pre %}
+	<form id="create_city" action="" method ="post">
+{% endblock %}
+{% block name %}{{ city_form.name.label }}:{{ city_form.name }}{% endblock %}
+{% block campaign_title %}{{ city_form.campaign.label }}{{ city_form.campaign}} {% endblock %}
+{% block themes_and_threats %}
+	{{ city_form.concepts.management_form }}
+	{% for concept_form in city_form.concepts %}
+		<div id="concept_{{forloop.counter}}" class="span4">
+			<div id="theme_threat_row_{{forloop.counter}}" class="row">
+				{% for radio in concept_form.theme %}
+					<div class="span2"> {{radio}} </div>
+				{% endfor %}
+			</div> <!-- theme_threat_row_{{forloop.counter}} -->
+			<div id="idea_row" class="row">
+				<div id="idea_span" class="span4">
+					{{ concept_form.idea.label }}:{{ concept_form.idea }}
+				</div> <!-- idea_span_{{forloop.counter}} -->
+			</div> <!-- idea_row_{{forloop.counter}} -->
+			<div id="aspect_row" class="row">
+				<div id="aspect_span" class="span4">
+					{{ concept_form.aspect.label }}:{{ concept_form.aspect }}
+				</div> <!-- aspect_span_{{forloop.counter}} -->
+			</div> <!-- aspect_row_{{forloop.counter}} -->
+			<div id="faces_row_{{forloop.counter}}" class="row">
+				<div id="faces_span_{{forloop.counter}}" class="span4">
+					<h4>The <em>Faces</em></h4>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Concept</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for face_form in concept_form.faces %}
+								<tr>
+									<td>{{ face_form.name }}</td>
+									<td>{{ face_form.concept }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div><!-- faces_span_{{forloop.counter}} -->
+			</div><!-- faces_row_{{forloop.counter}} -->
+		</div><!-- concept_{{forloop.counter}} -->
+	{% endfor %}
+{% endblock %}
+{% block supernatural_status_quo %}
+	{{ city_form.supernatural_status_quo }}
+{% endblock %}
+{% block mundane_status_quo %}
+	{{ city_form.mundane_status_quo }}
+{% endblock %}
+{% block city_post %}
+	</form><!-- create_city -->
+{% endblock %}

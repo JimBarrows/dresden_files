@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}City List{% endblock %}
+
+{% block content %}
+	<div class="row"> <div class="span12"> <h1>City Sheet (High Level)</h1> </div> </div>
+	{% block city_pre %}{% endblock %}
+	<div id="header_row" class="row">
+		<div class="span6">{% block name %}{% endblock %}</div>
+		<div class="span6">{% block campaign_title %}{% endblock %}</div>
+	</div> <!-- header_row -->
+
+	<div class="row"> <div class="span12"> <h2>City-Wide Themes and Threats</h2> </div> </div>
+	<div id="theme_threat_row" class="row">
+			{% block themes_and_threats %}{% endblock %}
+	</div> <!-- theme_threat_row -->
+
+	<div class="row"> <div class="span12"> <h2>The Balance of Power</h2> </div> </div>
+
+	<div class="row"> <div class="span12"> <h3>The Status Quo</h3> </div> </div>
+
+	<div id="balance_of_power" class="row">
+		<div id="supernatural_status_quo" class="span6">
+			<h4>What is the <em>Supernatural</em> status quo?</h4>
+			{% block supernatural_status_quo %} {% endblock %}
+		</div><!-- supernatural_status_quo -->
+		<div id="mundane_status_quo" class="span6">
+			<h4>What is the <em>Mundane</em> status quo?</h4>
+			{% block mundane_status_quo %} {% endblock %}
+		</div><!-- mundane_status_quo -->
+	</div> <!-- balance_of_power -->
+
+
+	<div class="row"> <div class="span12"> <h3>Locations</h3> </div> </div>
+	<div id="locations" class="row">
+		<div class="span12">
+			{%block locations %}{%endblock%}
+		</div><!-- span12 -->
+	</div> <!-- locations -->
+	{% block city_post %}
+	{% endblock %}
+{% endblock %}
