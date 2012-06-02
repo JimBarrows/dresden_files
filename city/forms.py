@@ -1,8 +1,9 @@
 from django.forms import ModelForm
 from django.forms.formsets import formset_factory
+from django.forms.models import modelformset_factory
 from django import forms
 from django.contrib.formtools.wizard.views import SessionWizardView
-from city.models import THEME_OR_THREAT_CHOICES
+from city.models import THEME_OR_THREAT_CHOICES, City, ThemeThreat, Aspect, Face, Location
 
 
 """City Creation:
@@ -12,27 +13,33 @@ from city.models import THEME_OR_THREAT_CHOICES
 	3) Creat PCs ( Page 45)
 	4) Finish up ( Page 46)"""
 
-class ConceptFaceForm( forms.Form):
-	"""The faces section of a concept are only a name and a concept, so that's all we need."""
-	name=forms.CharField(max_length=75)
-	concept=forms.CharField(max_length=200)
-
-class ConceptForm( forms.Form):
-	"""The core fields for a theme or threat, for use in a wizard"""
-	theme=forms.ChoiceField(THEME_OR_THREAT_CHOICES,widget=forms.RadioSelect)
-	idea = forms.CharField(max_length=200)
-	aspect = forms.CharField(max_length=200)
-	faces = formset_factory( ConceptFaceForm,extra=1)
-
-
-class CityForm( forms.Form):
+class CityForm( ModelForm):
 	"""The core fields for a city, for use in a wizard"""
-	name = forms.CharField(max_length=200)
-	campaign = forms.CharField(max_length=200)
-	concepts = formset_factory( ConceptForm,extra=3, max_num=3)
-	supernatural_status_quo = forms.CharField(max_length=200,widget=forms.Textarea)
-	mundane_status_quo = forms.CharField(max_length=200,widget=forms.Textarea)
+	class Meta:
+		model = City
 
+class ThemeThreatForm( ModelForm):
+	"""The core fields for a theme or threat, for use in a wizard"""
+	class Meta:
+		model = ThemeThreat
+		exclude = ('city',)
 
+class AspectForm( ModelForm):
+	class Meta:
+		model = Aspect
 
+class FaceForm( ModelForm):
+	"""The faces section of a concept are only a name and a concept, so that's all we need."""
+	class Meta:
+		model = Face
+		fields = ('name', 'high_concept', 'motivation', )
 
+class LocationForm( ModelForm):
+	class Meta:
+		model = Location
+		fields = ('name', 'description', 'theme_or_threat', 'idea',)
+
+ThemeThreatFormSet = modelformset_factory(ThemeThreat)
+AspectFormSet = modelformset_factory(Aspect)
+FaceFormSet = modelformset_factory( Face)
+LocationFormSet = modelformset_factory( Location)

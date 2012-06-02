@@ -1,8 +1,8 @@
-from city.models import Aspect, City, Concept, Face, FaceRelationship, Location
+from city.models import Aspect, City, ThemeThreat, Face, FaceRelationship, Location
 from django.contrib import admin
 
-class ConceptInline(admin.StackedInline):
-	model = Concept
+class ThemeThreatInline(admin.StackedInline):
+	model = ThemeThreat
 	extra = 3
 
 class FaceRelationshipInline(admin.StackedInline):
@@ -11,7 +11,7 @@ class FaceRelationshipInline(admin.StackedInline):
 	extra = 1
 
 class CityAdmin(admin.ModelAdmin):
-	inlines = [ConceptInline]
+	inlines = [ThemeThreatInline]
 
 class FaceAdmin(admin.ModelAdmin):
 	inlines = [FaceRelationshipInline]

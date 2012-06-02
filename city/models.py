@@ -13,7 +13,7 @@ class City(models.Model):
 	def __unicode__(self):
 		return self.name
 
-class Concept(models.Model):
+class ThemeThreat(models.Model):
 	city = models.ForeignKey(City)
 	theme = models.CharField(max_length=2, choices=THEME_OR_THREAT_CHOICES)
 	idea = models.CharField(max_length=200)
@@ -22,7 +22,7 @@ class Concept(models.Model):
 
 class Aspect(models.Model):
 	name = models.CharField(max_length=75)
-	concept = models.ForeignKey(Concept, null=True, blank=True)
+	concept = models.ForeignKey(ThemeThreat, null=True, blank=True)
 	location = models.ForeignKey('Location', null=True, blank=True)
 	def __unicode__(self):
 		return self.name
@@ -32,7 +32,6 @@ class Face(models.Model):
 	high_concept = models.CharField(max_length=200)
 	motivation = models.CharField(max_length=200)
 	relationships = models.ManyToManyField('Face', through="FaceRelationship")
-	concept = models.ForeignKey(Concept, null=True, blank=True)
 	location = models.ForeignKey('Location', null=True, blank=True)
 	def __unicode__(self):
 		return self.name
@@ -47,7 +46,7 @@ class FaceRelationship(models.Model):
 class Location(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField()
-	theme = models.CharField(max_length=2, choices=THEME_OR_THREAT_CHOICES)
+	theme_or_threat = models.CharField(max_length=2, choices=THEME_OR_THREAT_CHOICES)
 	idea = models.CharField(max_length=200)
 	city = models.ForeignKey('City')
 	def __unicode__(self):

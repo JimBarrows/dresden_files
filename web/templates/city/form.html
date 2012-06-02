@@ -18,16 +18,31 @@
 {% endblock %}
 {% block themes_and_threats %}
 	{{ city_form.concepts.management_form }}
+				{% if city_form.concept.errors %}
+					<div class="alert alert-error">
+						{{city_form.concept.errors }}
+					</div>
+				{% endif %}
 	{% for concept_form in city_form.concepts %}
 		<div id="concept_{{forloop.counter}}" class="span4">
 			<div id="theme_threat_row_{{forloop.counter}}" class="row">
 				{% for radio in concept_form.theme %}
 					<div class="span2"> {{radio}} </div>
 				{% endfor %}
+				{% if concept_form.theme.errors %}
+					<div class="alert alert-error">
+						{{concept_form.theme.errors }}
+					</div>
+				{% endif %}
 			</div> <!-- theme_threat_row_{{forloop.counter}} -->
 			<div id="idea_row" class="row">
 				<div id="idea_span" class="span4">
 					{{ concept_form.idea.label }}:{{ concept_form.idea }}
+					{% if concept_form.idea.errors %}
+						<div class="alert alert-error">
+							{{ concept_form.idea }}
+						</div>
+					{% endif %}
 				</div> <!-- idea_span_{{forloop.counter}} -->
 			</div> <!-- idea_row_{{forloop.counter}} -->
 			<div id="aspect_row" class="row">
@@ -35,6 +50,7 @@
 					{{ concept_form.aspect.label }}:{{ concept_form.aspect }}
 				</div> <!-- aspect_span_{{forloop.counter}} -->
 			</div> <!-- aspect_row_{{forloop.counter}} -->
+			<!--
 			<div id="faces_row_{{forloop.counter}}" class="row">
 				<div id="faces_span_{{forloop.counter}}" class="span4">
 					<h4>The <em>Faces</em></h4>
@@ -54,8 +70,8 @@
 							{% endfor %}
 						</tbody>
 					</table>
-				</div><!-- faces_span_{{forloop.counter}} -->
-			</div><!-- faces_row_{{forloop.counter}} -->
+				</div><!- - faces_span_{{forloop.counter}} - ->
+			</div><!- - faces_row_{{forloop.counter}} -->
 		</div><!-- concept_{{forloop.counter}} -->
 	{% endfor %}
 {% endblock %}
