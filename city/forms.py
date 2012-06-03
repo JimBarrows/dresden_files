@@ -27,6 +27,8 @@ class ThemeThreatForm( ModelForm):
 class AspectForm( ModelForm):
 	class Meta:
 		model = Aspect
+		fields = ('name',)
+		widgets = dict(('city', forms.HiddenInput()) for field_name in Aspect._meta.get_all_field_names())
 
 class FaceForm( ModelForm):
 	"""The faces section of a concept are only a name and a concept, so that's all we need."""
@@ -45,3 +47,4 @@ FaceFormSet = modelformset_factory( Face)
 LocationFormSet = modelformset_factory( Location)
 CityFacesInlineFormset = inlineformset_factory(City, Face)
 ThemeOrThreatFacesInlineFormset = inlineformset_factory(ThemeThreat, Face, form=FaceForm,extra=3)
+ThemeOrThreatAspectInlineFormset = inlineformset_factory(ThemeThreat, Aspect, form=AspectForm)

@@ -5,6 +5,9 @@
 {% block content %}
 <form method="post" action="">
 	{% include "formtools/forms.html" with form=theme_or_threat_form %}
+	<h2>Asepects</h2>
+	{% include "formtools/inline_formset.html" with forms=aspect_formset %}
+	<h2>Faces</h2>
 	{% include "formtools/inline_formset.html" with forms=faces_formset %}
 	<button class="btn btn-primary" type="submit"> Add</button>
 </form>

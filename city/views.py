@@ -5,7 +5,7 @@ from django.contrib.formtools.wizard.views import SessionWizardView
 from django.template import Context, loader, RequestContext
 from django.http import HttpResponse
 from city.models import City, ThemeThreat, Aspect
-from city.forms import CityForm,ThemeThreatForm, CityFacesInlineFormset, ThemeOrThreatFacesInlineFormset, FaceFormSet
+from city.forms import *
 
 def index( request):
 	city_list = City.objects.all().order_by('-name')
@@ -32,17 +32,22 @@ def theme_or_threat( request, city_id, theme_threat_id=None):
 	if request.method == "POST":
 		theme_threat_form = ThemeThreatForm( request.POST, instance=theme_threat)
 		faces_formset = ThemeOrThreatFacesInlineFormset( request.POST, instance=theme_threat)
-		if theme_threat_form.is_valid() and faces_formset.is_valid():
+		aspect_formset = ThemeOrThreatAspectInlineFormset( request.POST, instance=theme_threat)
+		if theme_threat_form.is_valid() and faces_formset.is_valid() and aspect_formset.is_valid(): 
 			theme_threat_form.save()
 			faces_formset.save()
+			aspect_formset.save()
 			return HttpResponseRedirect('/city/{0}'.format(city_id))
 	else:
 		theme_threat_form = ThemeThreatForm(instance=theme_threat)
 		faces_formset = ThemeOrThreatFacesInlineFormset(instance=theme_threat)
+		aspect_formset = ThemeOrThreatAspectInlineFormset(instance=theme_threat)
 
 	return render_to_response( 'city/theme_or_threat_form.html', 
 		{'theme_or_threat_form' : theme_threat_form,
-		 'faces_formset' : faces_formset}, 
+		 'faces_formset' : faces_formset,
+		 'aspect_formset' : aspect_formset,
+		 }, 
 		context_instance=RequestContext(request))
 	
 
