@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django.forms.formsets import formset_factory
-from django.forms.models import modelformset_factory
+from django.forms.models import modelformset_factory, inlineformset_factory
 from django import forms
 from django.contrib.formtools.wizard.views import SessionWizardView
 from city.models import THEME_OR_THREAT_CHOICES, City, ThemeThreat, Aspect, Face, Location
@@ -22,7 +22,7 @@ class ThemeThreatForm( ModelForm):
 	"""The core fields for a theme or threat, for use in a wizard"""
 	class Meta:
 		model = ThemeThreat
-		exclude = ('city',)
+		widgets = dict(('city', forms.HiddenInput()) for field_name in ThemeThreat._meta.get_all_field_names())
 
 class AspectForm( ModelForm):
 	class Meta:
@@ -43,3 +43,5 @@ ThemeThreatFormSet = modelformset_factory(ThemeThreat)
 AspectFormSet = modelformset_factory(Aspect)
 FaceFormSet = modelformset_factory( Face)
 LocationFormSet = modelformset_factory( Location)
+CityFacesInlineFormset = inlineformset_factory(City, Face)
+ThemeOrThreatFacesInlineFormset = inlineformset_factory(ThemeThreat, Face, form=FaceForm,extra=3)

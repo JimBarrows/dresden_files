@@ -1,25 +1,28 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block head %}
+{% block title %}
+	Create City Wizard
+{% endblock %}
+{% block media %}
 {{ wizard.form.media }}
+{% endblock %}
+{% block pageTitle %}
+	Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}
 {% endblock %}
 
 {% block content %}
-<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
 <form action="" method="post">
 	{% csrf_token %}
-	<table>
-		{{ wizard.management_form }}
-		{% if wizard.form.forms %}
-			{{ wizard.form.management_form }}
-			{% for form in wizard.form.forms %}
-				{{ form }}
-			{% endfor %}
-		{% else %}
-			{{ wizard.form }}
-		{% endif %}
-	</table>
+	{{ wizard.management_form }}
+	{% if wizard.form.forms %}
+		{{ wizard.form.management_form }}
+		{% for form in wizard.form.forms %}
+			{% include "formtools/forms.html" with form=form %}
+		{% endfor %}
+	{% else %}
+		{% include "formtools/forms.html" with form=wizard.form %}
+	{% endif %}
 	<div class="btn-group">
 		{% if wizard.steps.prev %}
 			<button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}" class="btn">{% trans "First" %}</button>

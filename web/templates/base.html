@@ -24,6 +24,8 @@
    {% endblock %}
    {% block head_css %}
    {% endblock %}
+   {% block media %}
+   {% endblock %}
 </head>
 <body >
 	<div id="mainMenu" class="navbar navbar-fixed-top">
@@ -51,7 +53,7 @@
 		</div> <!-- navbar-inner -->
 	</div> <!-- mainMenu -->
 	<div class="container ">
-		<h1>{% block pageTitle %}{% endblock %}</h1>
+		<h1>{% block page_title %}{% endblock %}</h1>
 		{% block content %}{% endblock %}
 	</div> <!-- container -->
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>

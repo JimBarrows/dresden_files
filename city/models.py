@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms.widgets import RadioSelect
 
 THEME_OR_THREAT_CHOICES=(
 	('TE', 'Theme'),
@@ -33,6 +34,8 @@ class Face(models.Model):
 	motivation = models.CharField(max_length=200)
 	relationships = models.ManyToManyField('Face', through="FaceRelationship")
 	location = models.ForeignKey('Location', null=True, blank=True)
+	city = models.ForeignKey('City', null=True, blank=True)
+	theme_or_threat = models.ForeignKey('ThemeThreat', null=True, blank=True)
 	def __unicode__(self):
 		return self.name
 

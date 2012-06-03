@@ -6,9 +6,9 @@
 {% block campaign_title %}<h1>{{ city.campaign_title }}</h1>{% endblock %}
 
 {%block themes_and_threats %}
-	{% for concept in city.concept_set.all %}
-		<!-- column num {% cycle 1 2 3 as column_number%} -->
-		{% if column_number == 1 %}
+	<a href="/city/{{city.id}}/themesorthreats/add" class="btn">Add</a>
+	{% for concept in city.themethreat_set.all %}
+		{% if forloop.first %}
 			<div id="theme_threat_row" class="row">
 		{% endif %}
 		<div id="theme_threat_{{forloop.counter}}" class="span4">
@@ -35,7 +35,7 @@
 				{% for face in concept.face_set.all %}
 					<tr>
 						<td>{{face.name}}</td>
-						<td>{{face.concept}}</td>
+						<td>{{face.high_concept}}</td>
 					</tr>
 				{% empty %}
 					<tr>
@@ -45,7 +45,7 @@
 			</tbody>
 		</table>
 		</div> <!-- theme_threat_{{forloop.counter}} -->
-		{% if  column_number == 3 or forloop.last %}
+		{% if  forloop.counter == 3 or forloop.last %}
 			</div> <!-- theme_threat_row -->
 		{% endif %}
 	{% empty %}
