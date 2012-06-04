@@ -34,7 +34,7 @@ class FaceForm( ModelForm):
 	"""The faces section of a concept are only a name and a concept, so that's all we need."""
 	class Meta:
 		model = Face
-		fields = ('name', 'high_concept', 'motivation', )
+		fields = ('name', 'high_concept', )
 
 class LocationForm( ModelForm):
 	class Meta:

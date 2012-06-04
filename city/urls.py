@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
-from views import index, view, CreateCityWizard, faces, theme_or_threat
+from views import *
 from forms import CityForm, ThemeThreatForm, LocationFormSet, FaceFormSet
 import os.path
 
@@ -13,5 +13,6 @@ urlpatterns = patterns('city.views',
 	url(r'^(?P<city_id>\d+)/themesorthreats/add$', theme_or_threat),
 	url(r'^(?P<city_id>\d+)/themesorthreats/edit/(?P<theme_threat_id>\d+)$', theme_or_threat),
 	url(r'^(?P<city_id>\d+)/faces$', faces),
-	url(r'^create/$', CreateCityWizard.as_view([CityForm, ThemeThreatForm, ThemeThreatForm, ThemeThreatForm, LocationFormSet, FaceFormSet])), 
+#	url(r'^create/$', CreateCityWizard.as_view([CityForm, ThemeThreatForm, ThemeThreatForm, ThemeThreatForm, LocationFormSet, FaceFormSet])), 
+	url(r'^create$', city_form),
 )

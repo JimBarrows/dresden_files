@@ -18,7 +18,10 @@ def view( request, city_id):
 def faces( request, city_id):
 	city = get_object_or_404(City, pk=city_id)
 	faces_inline_formset = CityFacesInlineFormset( instance=city)
-	return render_to_response('city/faces.html', {'city':city,'faces':faces_inline_formset,}, context_instance=RequestContext(request))
+	return render_to_response('city/faces.html', 
+		{'city':city,
+		'faces':faces_inline_formset,}, 
+		context_instance=RequestContext(request))
 
 def theme_or_threat( request, city_id, theme_threat_id=None):
 
@@ -48,6 +51,18 @@ def theme_or_threat( request, city_id, theme_threat_id=None):
 		 'faces_formset' : faces_formset,
 		 'aspect_formset' : aspect_formset,
 		 }, 
+		context_instance=RequestContext(request))
+	
+def city_form( request):
+	if request.method == "POST":
+		city_form = CityForm( request.POST)
+		if( city_form.is_valid()) :
+			city = city_form.save()
+			return HttpResponseRedirect('/city/{0}'.format(city.id))
+	else :
+		city_form = CityForm()
+	return render_to_response( 'city/form.html', 
+		{ 'city_form': city_form,},
 		context_instance=RequestContext(request))
 	
 

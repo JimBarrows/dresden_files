@@ -1,6 +1,16 @@
+{% extends "base.html" %}
+{% comment %}
 {% extends "city/city_template.html" %}
-
+{% endcomment %}
 {% block title %}Create City{% endblock %}
+{% block page_title %}Create City{% endblock %}
+{% block content %}
+<form method="post" action"">
+	{% include "formtools/forms.html" with form=city_form %}
+	<button class="btn btn-primary" type="submit"> Add</button>
+</form>
+{% endblock %}
+{% comment %}
 {% block city_pre %}
 	<form id="create_city" action="/city/save/" method ="post">
 {% endblock %}
@@ -10,12 +20,15 @@
 		<div class="alert alert-error">{{city_form.name.errors}}</div>
 	{% endif %}
 {% endblock %}
+{% endcomment %}
+{% comment %}
 {% block campaign_title %}
 	{{ city_form.campaign.label }}: {{ city_form.campaign}}   
 	{% if city_form.campaign.errors %}
 		<div class="alert alert-error">{{city_form.campaign.errors}}</div>
 	{% endif %}
 {% endblock %}
+{% comment %}
 {% block themes_and_threats %}
 	{{ city_form.concepts.management_form }}
 				{% if city_form.concept.errors %}
@@ -92,3 +105,4 @@
 	<button type="submit">Save</button>
 	</form><!-- create_city -->
 {% endblock %}
+{% endcomment %}
