@@ -61,13 +61,13 @@
 {% endblock %}
 
 {% block locations %}
+	<a href="/city/{{city.id}}/locations/add" class="btn">Add</a>
 	{% for location in city.location_set.all %}
-		<!-- column number {%cycle 1 2 3 as column_number %} -->
-		{% if column_number == 1 %}
+		{% if forloop.first  %}
 			<div class="row">
 		{% endif %}
-		<div id="location_{{column_number}}_{{forloop.counter}}" class="span4">
-			<h4>{{location.name}}</h4>
+		<div id="location_{{forloop.counter}}" class="span4">
+			<h4>{{location.name}} <a href="/city/{{city.id}}/locations/edit/{{location.id}}" class="btn">Edit</a></h4>
 			{{location.description}}
 			<p><em>{{location.get_theme_display}}</em></p>
 			<h5>The idea</h5>
@@ -79,7 +79,7 @@
 					{{aspect.name}}
 				</li> <!-- location_aspect_{{forloop.counter}} -->
 				{% empty %}
-					<li>There are no spects</li>
+					<li>There are no aspects</li>
 			{% endfor %}
 			</ul><!-- location_aspect_list -->
 			<h5>The Faces</h5>

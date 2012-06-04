@@ -53,6 +53,36 @@ def theme_or_threat( request, city_id, theme_threat_id=None):
 		 }, 
 		context_instance=RequestContext(request))
 	
+def location_form( request, city_id, location_id=None):
+
+	city = get_object_or_404(City, pk=city_id)
+
+	if location_id == None:
+		location= Location(city=city)
+	else:
+		location= Location.objects.get(id = location_id)
+
+	if request.method == "POST":
+		location_form = LocationForm( request.POST, instance=location)
+		faces_formset = LocationFacesInlineFormset( request.POST, instance=location)
+		aspect_formset = LocationAspectInlineFormset( request.POST, instance=location)
+		if( location_form.is_valid() and faces_formset.is_valid() and aspect_formset.is_valid()) :
+			location = location_form.save()
+			faces_formset.save()
+			aspect_formset.save()
+			return HttpResponseRedirect('/city/{0}'.format(city.id))
+	else :
+		location_form = LocationForm(instance=location)
+		faces_formset = LocationFacesInlineFormset( instance=location)
+		aspect_formset = LocationAspectInlineFormset( instance=location)
+
+	return render_to_response( 'city/location_form.html', 
+		{ 'location_form': location_form,
+		 	'faces_formset' : faces_formset,
+		 	'aspect_formset' : aspect_formset,
+		},
+		context_instance=RequestContext(request))
+
 def city_form( request):
 	if request.method == "POST":
 		city_form = CityForm( request.POST)
