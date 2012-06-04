@@ -11,6 +11,7 @@ urlpatterns = patterns('city.views',
 	url(r'^$', index),
 	url(r'^(?P<city_id>\d+)/$', view),
 	url(r'^(?P<city_id>\d+)/themesorthreats/add$', theme_or_threat),
+	url(r'^(?P<city_id>\d+)/themesorthreats/edit/(?P<theme_threat_id>\d+)$', theme_or_threat),
 	url(r'^(?P<city_id>\d+)/faces$', faces),
 	url(r'^create/$', CreateCityWizard.as_view([CityForm, ThemeThreatForm, ThemeThreatForm, ThemeThreatForm, LocationFormSet, FaceFormSet])), 
 )

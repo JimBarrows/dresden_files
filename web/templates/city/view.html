@@ -12,7 +12,7 @@
 			<div id="theme_threat_row" class="row">
 		{% endif %}
 		<div id="theme_threat_{{forloop.counter}}" class="span4">
-		<h3>{{concept.get_theme_display}}</h3>
+		<h3>{{concept.get_theme_display}}<a class="btn" href="/city/{{city.id}}/themesorthreats/edit/{{concept.id}}">Edit</a></h3>
 		<h4>The <em>Idea</h4>
 		<p>{{concept.idea}}</p>
 		<h4>The <em>Aspects</h4>
