@@ -38,7 +38,10 @@ def theme_or_threat( request, city_id, theme_threat_id=None):
 		aspect_formset = ThemeOrThreatAspectInlineFormset( request.POST, instance=theme_threat)
 		if theme_threat_form.is_valid() and faces_formset.is_valid() and aspect_formset.is_valid(): 
 			theme_threat_form.save()
-			faces_formset.save()
+			face_instances = faces_formset.save(commit=False)
+			for face_instance in face_instances:
+				face_instance.city = city
+				face_instance.save()
 			aspect_formset.save()
 			return HttpResponseRedirect('/city/{0}'.format(city_id))
 	else:
@@ -68,7 +71,10 @@ def location_form( request, city_id, location_id=None):
 		aspect_formset = LocationAspectInlineFormset( request.POST, instance=location)
 		if( location_form.is_valid() and faces_formset.is_valid() and aspect_formset.is_valid()) :
 			location = location_form.save()
-			faces_formset.save()
+			face_instances = faces_formset.save(commit=False)
+			for face_instance in face_instances:
+				face_instance.city = city
+				face_instance.save()
 			aspect_formset.save()
 			return HttpResponseRedirect('/city/{0}'.format(city.id))
 	else :

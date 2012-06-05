@@ -39,9 +39,7 @@ class ShortFaceForm( ModelForm):
 class FaceForm( ModelForm):
 	class Meta:
 		model = Face
-		widgets = {
-			'city':            forms.HiddenInput(),
-			'theme_or_threat': forms.HiddenInput()}
+		widgets = { 'city':            forms.HiddenInput(),}
 
 class LocationForm( ModelForm):
 	class Meta:
