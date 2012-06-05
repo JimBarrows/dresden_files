@@ -12,7 +12,9 @@
 
 	<div class="row"> <div class="span12"> <h2>City-Wide Themes and Threats</h2> </div> </div>
 	<div id="theme_threat_row" class="row">
+		<div class="span12">
 			{% block themes_and_threats %}{% endblock %}
+		</div>
 	</div> <!-- theme_threat_row -->
 
 	<div class="row"> <div class="span12"> <h2>The Balance of Power</h2> </div> </div>
@@ -31,10 +33,17 @@
 	</div> <!-- balance_of_power -->
 
 
-	<div class="row"> <div class="span12"> <h3>Locations</h3> </div> </div>
+	<div class="row"> <div class="span12"> <h2>Locations</h2> </div> </div>
 	<div id="locations" class="row">
 		<div class="span12">
 			{%block locations %}{%endblock%}
+		</div><!-- span12 -->
+	</div> <!-- locations -->
+
+	<div class="row"> <div class="span12"> <h2>Faces</h2> </div> </div>
+	<div id="faces" class="row">
+		<div class="span12">
+			{%block faces %}{%endblock%}
 		</div><!-- span12 -->
 	</div> <!-- locations -->
 	{% block city_post %}
