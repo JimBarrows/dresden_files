@@ -33,17 +33,10 @@ class Face(models.Model):
 	name = models.CharField(max_length=200)
 	high_concept = models.CharField(max_length=200)
 	motivation = models.CharField(max_length=200)
-	relationships = models.ManyToManyField('Face', through="FaceRelationship")
+	relationships = models.ManyToManyField('Face', null=True, blank=True)
 	location = models.ForeignKey('Location', null=True, blank=True)
 	city = models.ForeignKey('City', null=True, blank=True)
 	theme_or_threat = models.ForeignKey('ThemeThreat', null=True, blank=True)
-	def __unicode__(self):
-		return self.name
-
-class FaceRelationship(models.Model):
-	name = models.CharField(max_length=200)
-	from_face = models.ForeignKey('Face', related_name='from_face')
-	to_face = models.ForeignKey('Face', related_name='to_face')
 	def __unicode__(self):
 		return self.name
 

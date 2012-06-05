@@ -117,3 +117,30 @@
 			<div class="span12"><p>There are no locations</p></div>
 	{% endfor %}
 {% endblock %}
+{% block faces %}
+	<div class="row"><div class="span12"> <a href="/city/{{city.id}}/faces/add" class="btn">Add</a></div></div>
+	{% for face in city.face_set.all %}
+		{% cycle 1 2 3 as column_number silent %}
+		{% if column_number == 1 %}
+			<div class="row">
+		{% endif %}
+		<div id="face_{{face.id}}" class="span4">
+			<label>Name</label><a href="/city/{{city.id}}/faces/edit/{{face.id}}">{{face.name}}</a>
+			<label>Is the Face of</label>{{face.location}}
+			<label>with the High Concept</label>{{face.high_concept}}
+			<label>and Motivation</label>{{face.motivation}}
+			<label>with these Relationships</label>
+			<ul>
+				{% for relationship in face.relationships.all %}
+					<li>{{relationship.name}}</li>
+				{% endfor %}
+				{% for relationship in face.face_set.all %}
+					<li>{{relationship.name}}</li>
+				{% endfor %}
+			</ul>	
+		</div><!-- face_{{face.id}} -->
+		{% if column_number == 3 or forloop.last %}
+			</div>
+		{% endif %}
+	{% endfor %}
+{% endblock %}

@@ -3,7 +3,7 @@ from django.forms.formsets import formset_factory
 from django.forms.models import modelformset_factory, inlineformset_factory
 from django import forms
 from django.contrib.formtools.wizard.views import SessionWizardView
-from city.models import THEME_OR_THREAT_CHOICES, City, ThemeThreat, Aspect, Face, Location
+from city.models import *
 
 
 """City Creation:
@@ -35,6 +35,13 @@ class ShortFaceForm( ModelForm):
 	class Meta:
 		model = Face
 		fields = ('name', 'high_concept', )
+
+class FaceForm( ModelForm):
+	class Meta:
+		model = Face
+		widgets = {
+			'city':            forms.HiddenInput(),
+			'theme_or_threat': forms.HiddenInput()}
 
 class LocationForm( ModelForm):
 	class Meta:

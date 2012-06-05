@@ -83,6 +83,28 @@ def location_form( request, city_id, location_id=None):
 		},
 		context_instance=RequestContext(request))
 
+def face_form( request, city_id, face_id=None):
+
+	city = get_object_or_404(City, pk=city_id)
+
+	if face_id == None:
+		face= Face(city=city)
+	else:
+		face= Face.objects.get(id = face_id)
+
+	if request.method == "POST":
+		face_form = FaceForm( request.POST, instance=face)
+		if face_form.is_valid():# and face_relationship_formset.is_valid():
+			face = face_form.save()
+			return HttpResponseRedirect('/city/{0}'.format(city.id))
+	else :
+		face_form = FaceForm(instance=face)
+
+	return render_to_response( 'city/face_form.html', 
+		{ 'face_form': face_form,
+		},
+		context_instance=RequestContext(request))
+
 def city_form( request):
 	if request.method == "POST":
 		city_form = CityForm( request.POST)

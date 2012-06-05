@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Faces{% endblock %}
+{% block page_title %}Faces {% endblock %}
+{% block content %}
+	<form method="post" action="">
+		{% include "formtools/forms.html" with form=face_form %}
+		<h2>Relationships</h2>
+		{% include "formtools/inline_formset.html" with forms=face_relationship_formset %}
+		<button class="btn btn-primary" type="submit">Add</button>
+	</form>
+{% endblock %}
