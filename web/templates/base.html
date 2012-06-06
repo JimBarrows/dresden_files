@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ STATIC_URL }}css/silk_sprite.css" type="text/css" />
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/silk.css" type="text/css" /> 
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" media="screen, projection"/>
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.cerulean.theme.min.css" media="screen, projection"/>
 	<link rel="stylesheet" href="{{ STATIC_URL }}css/smoothness/jquery-ui-1.8.21.custom.css" type="text/css"/>
   <style>
    	body {
@@ -52,7 +52,6 @@
 		<h1>{% block page_title %}{% endblock %}</h1>
 		{% block content %}{% endblock %}
 	</div> <!-- container -->
-	<!--
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 	<script src="{{ STATIC_URL }}js/bootstrap-transition.js"></script>
 	<script src="{{ STATIC_URL }}js/bootstrap-alert.js"></script>
@@ -66,7 +65,6 @@
 	<script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
 	<script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
 	<script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
-	-->
 	{% block footerJavascript %}
 	{% endblock footerJavascript %}
 </body>

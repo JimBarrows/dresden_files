@@ -1,40 +1,6 @@
 {% extends "base.html" %}
 
 {% block title %}Front Page{% endblock %}
-{% block head_javascript %}
-	<script>
-	$(function() {
-		$( "#rerun" )
-			.button()
-			.click(function() {
-				alert( "Running the last action" );
-			})
-			.next()
-				.button( {
-					text: false,
-					icons: {
-						primary: "ui-icon-triangle-1-s"
-					}
-				})
-				.click(function() {
-					$("#last-action-dialog").dialog('open')
-				})
-				.parent()
-					.buttonset();
-		$("#last-action-dialog").dialog({autoOpen:false});
-	});
-	</script>
-{% endblock %}
 {% block content %}
 <h1>Cool Stuff goes here</h1>
-<div>
-	<button id="rerun">Run last action</button>
-	<button id="select">Select an action</button>
-</div>
-<div id="last-action-dialog" >
-	<ul>
-		<li>Menu item 1</li>
-		<li>Menu item 2</li>
-	</ul>
-</div>
 {% endblock %}
