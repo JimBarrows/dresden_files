@@ -12,9 +12,19 @@ def index( request):
 	return render_to_response( 'character/index.html', {'character_list' : character_list}, context_instance=RequestContext(request))
 
 def character_form(request, character_id=None):
-	character_list = CharacterSheet.objects.all().order_by('-name')
-	return render_to_response( 'character/index.html', {'character_list' : character_list}, context_instance=RequestContext(request))
+	character_sheet = CharacterSheet()
+	character_sheet_form = CharacterSheetForm(instance=character_sheet)
+	if request.method == "POST":
+		character_sheet_form = CharacterSheetForm(request.POST,instance=character_sheet)
+		if character_sheet_form.is_valid():
+			character_sheet = character_sheet_form.save()
+			return HttpResponseRedirect('/character/{0}'.format(character_sheet.id))
+	return render_to_response( 'character/form.html', {'character_sheet_form' : character_sheet_form}, context_instance=RequestContext(request))
 
+def view( request, character_id):
+	character_sheet = get_object_or_404( CharacterSheet, pk=character_id)
+	return render_to_response( 'character/view.html', {'character_sheet' : character_sheet}, context_instance=RequestContext(request))
+	
 def minor_milestone(request, character_id=None):
 	character_list = CharacterSheet.objects.all().order_by('-name')
 	return render_to_response( 'character/index.html', {'character_list' : character_list}, context_instance=RequestContext(request))
