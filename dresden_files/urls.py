@@ -5,6 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	url(r'^city/', include( 'city.urls')),
+	url(r'^character/', include( 'character.urls')),
 	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^$',index),
