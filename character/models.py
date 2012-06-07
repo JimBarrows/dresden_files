@@ -7,6 +7,7 @@ class CharacterSheet(models.Model):
 	high_concept = models.CharField(max_length=75)
 	trouble = models.CharField(max_length=75)
 	background = models.TextField()
+	musts = models.TextField()
 	rising_conflict = models.TextField()
 	the_story = models.TextField()
 	guest_star = models.TextField()

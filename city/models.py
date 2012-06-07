@@ -26,6 +26,7 @@ class Aspect(models.Model):
 	concept = models.ForeignKey(ThemeThreat, null=True, blank=True)
 	location = models.ForeignKey('Location', null=True, blank=True)
 	city = models.ForeignKey('City', null=True, blank=True)
+	character_sheet = models.ForeignKey('character.CharacterSheet', null=True, blank=True)
 	def __unicode__(self):
 		return self.name
 
