@@ -75,6 +75,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join( PROJECT_DIR, 'web/static'),
+    os.path.join( PROJECT_DIR, 'core/web/static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -113,7 +114,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join( PROJECT_DIR, 'web/templates')
+    os.path.join( PROJECT_DIR, 'web/templates'),
+    os.path.join( PROJECT_DIR, 'core/web/templates'),
 )
 
 INSTALLED_APPS = (
@@ -127,6 +129,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'character',
     'city',
+    'core',
 )
 
 # A sample logging configuration. The only tangible logging

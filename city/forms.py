@@ -4,6 +4,7 @@ from django.forms.models import modelformset_factory, inlineformset_factory
 from django import forms
 from django.contrib.formtools.wizard.views import SessionWizardView
 from city.models import *
+from core.models import Aspect
 
 
 """City Creation:

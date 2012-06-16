@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Template List {% endblock %}
+{% block page_title %}Template List {% endblock %}
+{% block content %}
+	<a id="add-template-button" href="/core/templates/add" class="btn">Add</a>
+	<table id="template-list">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Minimum Refresh</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for template in object_list %}
+			<tr id="template-{{template.id}}">
+				<td>{{template.name}}</td>	
+				<td>{{template.description}}</td>	
+				<td>{{template.minimum_refresh}}</td>	
+				<td>
+					<a href="/core/templates/{{party.id}}" class="btn">Edit</a>
+					<a href="/core/template/{{party.id}}/delete" class="btn">Delete</a>
+				</td>
+			</tr>
+		{% empty %}
+			<tr>
+				<td colspan="3">There are no templates.</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table> <!-- template-list -->
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} 
+Template
+{% endblock %}
+{% block page_title %} 
+Template
+{% endblock %}
+
+
+{% block content %}
+	<form id="template-form" action="" method="post">
+		{% include "formtools/forms.html" with form=form %}
+		<button class="btn btn-primary" type="submit">Save</button>
+		<a class="btn" href="/core/templates">Cancel</a>
+	</form> <!-- template-form -->
+{% endblock %}
+

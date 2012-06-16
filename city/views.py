@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.formtools.wizard.views import SessionWizardView
 from django.template import Context, loader, RequestContext
 from django.http import HttpResponse
-from city.models import City, ThemeThreat, Aspect
+from core.models import Aspect
+from city.models import City, ThemeThreat
 from city.forms import *
 
 def index( request):

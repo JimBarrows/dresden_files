@@ -1,9 +1,9 @@
 from django.db import models
-from city.models import Aspect
+from core.models import Aspect, SkillDescription, Template
 
 class CharacterSheet(models.Model):
 	name = models.CharField(max_length=200)
-	template = models.ForeignKey('TemplateDescription')
+	template = models.ForeignKey(Template)
 	high_concept = models.CharField(max_length=75)
 	trouble = models.CharField(max_length=75)
 	background = models.TextField()
@@ -16,16 +16,6 @@ class CharacterSheet(models.Model):
 		return self.name
 
 class Skill(models.Model):
-	name = models.CharField(max_length=200)
-	def __unicode__(self):
-		return self.name
-
-class SkillDescription( models.Model):
-	name = models.CharField(max_length=200)
-	def __unicode__(self):
-		return self.name
-
-class TemplateDescription(models.Model):
 	name = models.CharField(max_length=200)
 	def __unicode__(self):
 		return self.name
