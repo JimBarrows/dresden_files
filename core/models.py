@@ -1,7 +1,7 @@
 from django.db import models
 from city.models import ThemeThreat, Location, City
 
-LADDER_CHOICES=(
+The_Ladder=(
 	(8, 'Legendary'),
 	(7, 'Epic'),
 	(6, 'Fantastic'),
@@ -99,3 +99,10 @@ class Aspect(models.Model):
 	def __unicode__(self):
 		return self.name
 
+class PowerLevel(models.Model):
+	name = models.CharField(max_length=75)
+	refresh = models.IntegerField()
+	skill_points = models.IntegerField()
+	skill_cap =  models.IntegerField(choices=The_Ladder)
+	def __unicode__(self):
+		return self.name
