@@ -1,0 +1,444 @@
+[
+  {
+    "pk": 1,
+    "model": "core.template",
+    "fields": {
+      "important_skills": [],
+      "minimum_refresh": 2,
+      "name": "Pure Mortal",
+      "description": "YS 73"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.template",
+    "fields": {
+      "important_skills": [
+        4
+      ],
+      "minimum_refresh": -5,
+      "name": "Champion of God",
+      "description": "YS 73/74"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.must",
+    "fields": {
+      "supernatural_power": null,
+      "name": "No Supernatural Power",
+      "template": 1,
+      "description": "YS 73"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.must",
+    "fields": {
+      "supernatural_power": null,
+      "name": "High Concept Inline with Nature",
+      "template": 2,
+      "description": "YS 74"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.must",
+    "fields": {
+      "supernatural_power": null,
+      "name": "High Conviction",
+      "template": 2,
+      "description": "YS 74"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.templateoption",
+    "fields": {
+      "name": "Many Stunts",
+      "template": 1,
+      "description": "YS 73"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.templateoption",
+    "fields": {
+      "name": "Knight of the Cross",
+      "template": 2,
+      "description": "YS 74"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.skilldescription",
+    "fields": {
+      "name": "Alertness",
+      "description": "YS 121"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.skilldescription",
+    "fields": {
+      "name": "Fists",
+      "description": "YS 130"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.skilldescription",
+    "fields": {
+      "name": "Deceit",
+      "description": "YS 126"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.skilldescription",
+    "fields": {
+      "name": "Conviction",
+      "description": "YS 124/125"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 1,
+      "name": "Avoiding Surprise",
+      "description": "YS 121"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 1,
+      "name": "Combat Initiative",
+      "description": "YS 121"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 1,
+      "name": "Passive Awareness",
+      "description": "YS 121"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 2,
+      "name": "Brawling",
+      "description": "YS 131"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 2,
+      "name": "Close-Combat Defense",
+      "description": "YS 131"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 3,
+      "name": "Cat and Mouse",
+      "description": "YS 126"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 3,
+      "name": "Disguise",
+      "description": "YS 126"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 3,
+      "name": "Distraction and Misdirection",
+      "description": "YS 126"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 3,
+      "name": "False Face Forward",
+      "description": "YS 126"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 4,
+      "name": "Acts of Faith",
+      "description": "YS 125"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "core.trappingdescription",
+    "fields": {
+      "skill_description": 4,
+      "name": "Mental Fortitude",
+      "description": "YS 125"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.stuntdescription",
+    "fields": {
+      "skill_description": 1,
+      "name": "Corner of my Eye",
+      "description": "YS 149"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.stuntdescription",
+    "fields": {
+      "skill_description": 1,
+      "name": "On My Toes",
+      "description": "YS 149"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.stuntdescription",
+    "fields": {
+      "skill_description": 1,
+      "name": "Paranoid Probably",
+      "description": "YS 149"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.powerdescription",
+    "fields": {
+      "category": "CF",
+      "name": "Addictive Saliva",
+      "skills_affected": [
+        2,
+        3
+      ],
+      "note": "",
+      "cost": -1,
+      "description": "Your saliva is a powerful narcotic, leaving a victim insensate in the short term.  With just a little more exposure, your victim goes straight from senseless to senselessly addicted.  For those poor saps, detoxing is a bitch - it's easier, and more pleasant, just to play along with whatever you demand of them."
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.effect",
+    "fields": {
+      "name": "Narcotic SAliva",
+      "power": 1,
+      "description": "You may use narcotic saliva in a number of ways."
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "1",
+      "location": null
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "2",
+      "location": null
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "3",
+      "location": null
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "4",
+      "location": null
+    }
+  },
+  {
+    "pk": 5,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "5",
+      "location": null
+    }
+  },
+  {
+    "pk": 6,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "1",
+      "location": null
+    }
+  },
+  {
+    "pk": 7,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "2",
+      "location": null
+    }
+  },
+  {
+    "pk": 8,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "3",
+      "location": null
+    }
+  },
+  {
+    "pk": 9,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "4",
+      "location": null
+    }
+  },
+  {
+    "pk": 10,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "5",
+      "location": null
+    }
+  },
+  {
+    "pk": 11,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "1",
+      "location": null
+    }
+  },
+  {
+    "pk": 12,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "2",
+      "location": null
+    }
+  },
+  {
+    "pk": 13,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "3",
+      "location": null
+    }
+  },
+  {
+    "pk": 14,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "4",
+      "location": null
+    }
+  },
+  {
+    "pk": 15,
+    "model": "core.aspect",
+    "fields": {
+      "city": null,
+      "concept": null,
+      "name": "5",
+      "location": null
+    }
+  },
+  {
+    "pk": 1,
+    "model": "core.powerlevel",
+    "fields": {
+      "skill_cap": 4,
+      "name": "Feet in the Water",
+      "refresh": 6,
+      "skill_points": 20
+    }
+  },
+  {
+    "pk": 2,
+    "model": "core.powerlevel",
+    "fields": {
+      "skill_cap": 4,
+      "name": "Up to Your Waist",
+      "refresh": 7,
+      "skill_points": 25
+    }
+  },
+  {
+    "pk": 3,
+    "model": "core.powerlevel",
+    "fields": {
+      "skill_cap": 5,
+      "name": "Chest Deep",
+      "refresh": 8,
+      "skill_points": 30
+    }
+  },
+  {
+    "pk": 4,
+    "model": "core.powerlevel",
+    "fields": {
+      "skill_cap": 5,
+      "name": "Submerged",
+      "refresh": 10,
+      "skill_points": 35
+    }
+  }
+]
