@@ -43,7 +43,7 @@ class Must (models.Model):
 	name = models.CharField(max_length=75)
 	description = models.TextField()
 	template = models.ForeignKey(Template)
-	supernatural_power = models.ForeignKey('SupernaturalPower', null=True, blank=True)
+	supernatural_power = models.ForeignKey('PowerDescription', null=True, blank=True)
 	def __unicode__(self):
 		return self.name
 
@@ -74,7 +74,7 @@ class StuntDescription (models.Model):
 	def __unicode__(self):
 		return self.name
 
-class SupernaturalPower (models.Model):
+class PowerDescription (models.Model):
 	name = models.CharField(max_length=75)
 	description = models.TextField()
 	note = models.TextField(null=True, blank=True)
@@ -84,10 +84,10 @@ class SupernaturalPower (models.Model):
 	def __unicode__(self):
 		return self.name
 
-class SupernaturalPowerEffect (models.Model):
+class Effect (models.Model):
 	name = models.CharField(max_length=75)
 	description = models.TextField()
-	power = models.ForeignKey(SupernaturalPower)
+	power = models.ForeignKey(PowerDescription)
 	def __unicode__(self):
 		return self.name
 

@@ -15,7 +15,7 @@ class TrappingDescriptionInline( admin.TabularInline):
 	extra = 1
 
 class EffectInline( admin.TabularInline):
-	model=SupernaturalPowerEffect
+	model=Effect
 	extra = 1
 
 class TemplateAdmin( admin.ModelAdmin):
@@ -24,11 +24,11 @@ class TemplateAdmin( admin.ModelAdmin):
 class SkillDescriptionAdmin( admin.ModelAdmin):
 	inlines=[TrappingDescriptionInline]
 
-class SupernaturalPowerAdmin( admin.ModelAdmin):
+class PowerDescriptionAdmin( admin.ModelAdmin):
 	inlines=[EffectInline, MustInline]
 
 admin.site.register( Template, TemplateAdmin)
 admin.site.register( SkillDescription, SkillDescriptionAdmin)
 admin.site.register( StuntDescription)
-admin.site.register( SupernaturalPower, SupernaturalPowerAdmin)
+admin.site.register( PowerDescription, PowerDescriptionAdmin)
 admin.site.register( PowerLevel)

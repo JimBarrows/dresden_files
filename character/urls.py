@@ -8,11 +8,13 @@ WEB_ROOT = os.path.join( os.path.dirname( __file__), '/web')
 APP_ROOT = os.path.join( os.path.dirname( __file__), '/web/character')
 
 urlpatterns = patterns('character.views',
-	url(r'^$', index),
-	url(r'^(?P<character_id>\d+)$', view),
-	url(r'^create$', character_form),
-	url(r'^edit$', character_form),
-	url(r'^minor_milestone/(?P<character_id>\d+)$', minor_milestone),
-	url(r'^significant_milestone/(?P<character_id>\d+)$', significant_milestone),
-	url(r'^major_milestone/(?P<character_id>\d+)$', major_milestone),
+	url(r'^$', CharacterListView.as_view()),
+	url(r'^create$', ChooseATemplateFormView.as_view()),
+	url(r'^create/choose_a_template$', ChooseATemplateFormView.as_view()),
+	url(r'^create/choose_power_level/(?P<pk>\d+)$', ChooseAPowerLevelFormView.as_view()),
+	url(r'^create/high_concept/(?P<pk>\d+)$', HighConceptFormView.as_view()),
+	url(r'^create/trouble/(?P<pk>\d+)$', TroubleFormView.as_view()),
+	url(r'^create/phases/(?P<pk>\d+)$', PhasesFormView.as_view()),
+	url(r'^create/choose_skills/(?P<pk>\d+)$', ChooseSkillsFormView.as_view()),
+	url(r'^create/powers_and_stunts/(?P<pk>\d+)$', PowersStuntsFormView.as_view()),
 )

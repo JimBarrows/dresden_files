@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Choose Skills{% endblock %}
+{% block head_css %}
+ <!--choose_skills_form begin-->
+<style>
+	#choose_skills_form label { 
+		display: inline !important;
+		font-weight: bold
+	}	
+</style>
+ <!--choose_skills_form end-->
+{% endblock %}
+{% block page_title %}Choose Skills{% endblock %}
+{% block content %}
+<form id="choose_skills_form" method="post" action"">
+	{%csrf_token%}
+	<div id="header" class="row">
+		<div id="{{form.name.html_name}}" class="span6">
+			{{form.name.label}}: {{form.name}}
+		</div> <!-- {{form.name.html_name}} -->
+		<div id="{{form.template.html_name}}" class="span6">
+			{{form.template.label}}: {{form.template}}
+		</div> <!-- {{form.template.html_name}} -->
+	</div> <!-- header -->
+	<div id="power-level" class="row">
+		<div id="name" class="span3">
+			<label>Power Level:</label> {{power_level.name}}
+		</div> <!-- name -->
+		<div id="refresh" class="span3">
+			<label>Refresh:</label> {{power_level.refresh}}
+		</div> <!-- refresh -->
+		<div id="refresh" class="span3">
+			<label>Skill Points:</label> {{power_level.skill_points}}
+		</div> <!-- refresh -->
+		<div id="skill_cap" class="span3">
+			<label>Skill Cap:</label> {{power_level.get_skill_cap_display}}
+		</div> <!-- refresh -->
+	</div> <!-- power-level -->
+	<div id="skills" class="row">
+		<div id="skill_list_column" class="span6">
+			<p>List goes here</p>
+		</div> <!-- skill_list_column -->
+		<div id="skill_choice_column" class="span6">
+			{% if power_level.skill_cap >= 5 %}
+			<div id="{{form.superb_skills.html_name}}-row" class="row">
+				<div class="span1"> {{form.superb_skills.label}}:</div>
+				<div class="span5">{{form.superb_skills}}</div>
+			</div> <!-- {{form.superb_skills.html_name}}-row -->
+			{% endif %}
+			{% if power_level.skill_cap >= 4 %}
+			<div id="{{form.great_skills.html_name}}-row" class="row">
+				<div class="span1"> {{form.great_skills.label}}:</div>
+				<div class="span5">{{form.great_skills}}</div>
+			</div> <!-- {{form.great_skills.html_name}}-row -->
+			{% endif %}
+			{% if power_level.skill_cap >= 3 %}
+			<div id="{{form.good_skills.html_name}}-row" class="row">
+				<div class="span1"> {{form.good_skills.label}}:</div>
+				<div class="span5">{{form.good_skills}}</div>
+			</div> <!-- {{form.good_skills.html_name}}-row -->
+			{% endif %}
+			{% if power_level.skill_cap >= 2 %}
+			<div id="{{form.fair_skills.html_name}}-row" class="row">
+				<div class="span1"> {{form.fair_skills.label}}:</div>
+				<div class="span5">{{form.fair_skills}}</div>
+			</div> <!-- {{form.fair_skills.html_name}}-row -->
+			{% endif %}
+			{% if power_level.skill_cap >= 1 %}
+			<div id="{{form.average_skills.html_name}}-row" class="row">
+				<div class="span1"> {{form.average_skills.label}}:</div>
+				<div class="span5">{{form.average_skills}}</div>
+			</div> <!-- {{form.average_skills.html_name}}-row -->
+			{% endif %}
+		</div> <!-- skill_choice_column -->
+	</div>
+	{% include "formtools/inline_formset.html" with forms=inline_skills%}
+
+</form><!-- choose_skills_form -->
+{% endblock %}
+
+

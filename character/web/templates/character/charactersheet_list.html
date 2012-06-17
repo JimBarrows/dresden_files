@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}Charcter List{% endblock %}
+{% block page_title %}Charcter List{% endblock %}
 
 {% block content %}
-<h1>Charcter List</h1>
-{% if character_list %}
+	<a href="create" class="btn">Create</a>
 	<ul>
 		{% for character in character_list %}
 			<li><a href="/character/{{character.id}}/">{{character.name}}</a></li>
+			{% empty %}
+				<p>No characters have been created</p>
 		{% endfor %}
 	</ul>
-{% else %}
-	<p>No characters have been created</p>
-{% endif %}
 {% endblock %}
