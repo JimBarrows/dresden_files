@@ -11,6 +11,15 @@
 </style>
  <!--choose_skills_form end-->
 {% endblock %}
+{% block head_javascript %}
+<!-- choose_skills_form begin -->
+<script>
+$(function() {
+	$( "#skill_list li" ).draggable({ revert: true });
+});
+</script>
+<!-- choose_skill_form end -->
+{% endblock %}
 {% block page_title %}Choose Skills{% endblock %}
 {% block content %}
 <form id="choose_skills_form" method="post" action"">
@@ -39,7 +48,13 @@
 	</div> <!-- power-level -->
 	<div id="skills" class="row">
 		<div id="skill_list_column" class="span6">
-			<p>List goes here</p>
+			<ul id="skill_list">
+				<li id="skill" class="skill" data="1">Investigation</li>
+				<li class="skill" data="2">Conviction</li>
+				<li class="skill" data="3">Discipline</li>
+				<li class="skill" data="4">Atheletics</li>
+				<li class="skill" data="5">Burglary</li>
+			</ul>
 		</div> <!-- skill_list_column -->
 		<div id="skill_choice_column" class="span6">
 			{% if power_level.skill_cap >= 5 %}
@@ -74,8 +89,7 @@
 			{% endif %}
 		</div> <!-- skill_choice_column -->
 	</div>
-	{% include "formtools/inline_formset.html" with forms=inline_skills%}
-
+	<button class="btn btn-primary" type="submit">Next</button>
 </form><!-- choose_skills_form -->
 {% endblock %}
 

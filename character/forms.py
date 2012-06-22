@@ -33,6 +33,7 @@ class PhasesForm( ModelForm):
 	guest_star_redux_aspect = forms.CharField()
 	class Meta:
 		model = CharacterSheet
+		fields=['background', 'rising_conflict', 'the_story', 'guest_star', 'guest_star_redux']
 
 class ChooseSkillsForm( ModelForm):
 	superb_skills = forms.MultipleChoiceField()
@@ -42,7 +43,7 @@ class ChooseSkillsForm( ModelForm):
 	average_skills = forms.MultipleChoiceField()
 	class Meta:
 		model = CharacterSheet
-#		fields=['name', 'template', ]
+		fields=['name', 'template', 'power_level']
 
 class PowerStuntsForm( ModelForm):
 	class Meta:
