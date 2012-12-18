@@ -8,6 +8,28 @@
 		display: inline !important;
 		font-weight: bold
 	}	
+	#skill_list .ui-selecting { 
+		background: #FECA40; 
+	}
+	#skill_list .ui-selected { 
+		background: #F39814; 
+		color: white;
+	}
+	#skill_list, .skill_dropzone { 
+		list-style-type:none; 
+		margin: 0; 
+		padding: 0; 
+		margin-right: 10px;
+		background: #eee;
+		padding: 5px;
+		width: 143px;
+	}
+	#skill_list li{ 
+		margin: 3px; 
+		padding: 0.4em; 
+		font-size: 1.4em; 
+		height 18px;
+	}
 </style>
  <!--choose_skills_form end-->
 {% endblock %}
@@ -15,7 +37,11 @@
 <!-- choose_skills_form begin -->
 <script>
 $(function() {
-	$( "#skill_list li" ).draggable({ revert: true });
+	$( "#skill_list, .skill_dropzone" ).sortable({
+		connectWith: "ul"
+	});
+	$( "#skill_list, .skill_dropzone").disableSelection();
+	
 });
 </script>
 <!-- choose_skill_form end -->
@@ -48,12 +74,12 @@ $(function() {
 	</div> <!-- power-level -->
 	<div id="skills" class="row">
 		<div id="skill_list_column" class="span6">
-			<ul id="skill_list">
-				<li id="skill" class="skill" data="1">Investigation</li>
-				<li class="skill" data="2">Conviction</li>
-				<li class="skill" data="3">Discipline</li>
-				<li class="skill" data="4">Atheletics</li>
-				<li class="skill" data="5">Burglary</li>
+			<ul id="skill_list" >
+				<li class="skill_draggable" data="1">Investigation</option>
+				<li class="skill_draggable" data="2">Conviction</option>
+				<li class="skill_draggable" data="3">Discipline</option>
+				<li class="skill_draggable" data="4">Atheletics</option>
+				<li class="skill_draggable" data="5">Burglary</option>
 			</ul>
 		</div> <!-- skill_list_column -->
 		<div id="skill_choice_column" class="span6">
@@ -66,7 +92,11 @@ $(function() {
 			{% if power_level.skill_cap >= 4 %}
 			<div id="{{form.great_skills.html_name}}-row" class="row">
 				<div class="span1"> {{form.great_skills.label}}:</div>
-				<div class="span5">{{form.great_skills}}</div>
+				<div class="span5">
+					<ul id="{{from.great_skills.html_name}}-dropzone" class="skill_dropzone">
+					</ul>
+					{{form.great_skills}}
+				</div>
 			</div> <!-- {{form.great_skills.html_name}}-row -->
 			{% endif %}
 			{% if power_level.skill_cap >= 3 %}
