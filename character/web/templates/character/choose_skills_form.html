@@ -81,7 +81,7 @@ $(function() {
 				<li class="skill_draggable" data="4">Atheletics</option>
 				<li class="skill_draggable" data="5">Burglary</option>
 			</ul>
-		</div> <!-- skill_list_column -->
+		</div> <!-- skill_list -->
 		<div id="skill_choice_column" class="span6">
 			{% if power_level.skill_cap >= 5 %}
 			<div id="{{form.superb_skills.html_name}}-row" class="row">
@@ -93,8 +93,6 @@ $(function() {
 			<div id="{{form.great_skills.html_name}}-row" class="row">
 				<div class="span1"> {{form.great_skills.label}}:</div>
 				<div class="span5">
-					<ul id="{{from.great_skills.html_name}}-dropzone" class="skill_dropzone">
-					</ul>
 					{{form.great_skills}}
 				</div>
 			</div> <!-- {{form.great_skills.html_name}}-row -->
