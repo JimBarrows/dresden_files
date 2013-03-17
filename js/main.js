@@ -17,8 +17,8 @@ var AppRouter = Backbone.Router.extend({
     	}
     	
     ,addCharacter : function() {
-    	this.characterPhasesWorksheetView = new CharacterPhasesWorksheetView();
-    	$("#content").html( this.characterPhasesWorksheetView.el);
+    	this.characterWorksheetView = new CharacterWorksheetView();
+    	$("#content").html( this.characterWorksheetView.el);
     	}
     	
     ,addCampaign : function () {
@@ -27,7 +27,7 @@ var AppRouter = Backbone.Router.extend({
     }
 });
 
-utils.loadTemplate(['HeaderView', 'InitialView', 'CharacterPhasesWorksheetView', 'CampaignFormView'], function() {
+utils.loadTemplate(['HeaderView', 'InitialView', 'CharacterWorksheetView', 'CampaignFormView'], function() {
     app = new AppRouter();
     Backbone.history.start();
 });
