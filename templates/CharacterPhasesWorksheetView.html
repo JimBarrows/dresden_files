@@ -1,138 +1,289 @@
 <div class="row page-header">
-	<h1 class="offset3 span6">Character Phases Worksheet</h1>
+	<h1 class="offset3 span6">Character Worksheet</h1>
 </div>
 <form>
-	<fieldset>
 	<div class="row">
-		<span class="span6">
-			<label>Character</label>
-			<input class="span5" type="text"/>
-		</span>
-		<span class="span6">
-			<label>Player</label>
-			<input class="span5" type="text"/>
-		</span>
+		<div class="span12">
+			<fieldset>
+				<div class="row">
+					<span class="span6">
+						<label>Character</label>
+						<input class="span5" type="text"/>
+					</span>
+					<span class="span6">
+						<label>Player</label>
+						<input class="span5" type="text"/>
+					</span>
+				</div>
+				<div class="row">
+					<span class="span6">
+						<label>Template</label>
+						<input type="text"/>
+					</span>
+					<span class="span6">
+						<label>High Concept Aspect</label>
+						<input class="span4" type="text" maxlength="140"/>
+					</span>
+				</div>
+				<div class="row">
+					<span class="span6">
+						<label>Musts</label>
+						<input type="text"/>
+					</span>
+					<span class="span6">
+						<label>Trouble Aspect</label>
+						<input class="span4" type="text" maxlength="140"/>
+					</span>
+				</div>
+			</fieldset>
+		</div>
 	</div>
 	<div class="row">
-		<span class="span6">
-			<label>Template</label>
-			<input type="text"/>
-		</span>
-		<span class="span6">
-			<label>High Concept Aspect</label>
-			<input class="span4" type="text" maxlength="140"/>
-		</span>
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="#phases" data-toggle="tab">Phases</a>
+			</li>
+			<li>
+				<a href="#skills" data-toggle="tab">Skills</a>
+			</li>
+			<li>
+				<a href="#stunts-and-powers" data-toggle="tab">Stunts &amp; Powers</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="phases">
+				<h2>Phases</h2>
+				<fieldset>
+					<legend>Phase One</legend>
+					<div class="row span12">
+						<h3>Background <small>Where did you come from?</small></h3>
+					</div>
+					<div class="row">		
+						<div class="span8">
+							<textarea class="field span8" rows="8"></textarea>
+						</div>
+						<div class="span4">
+							<p>What nation, region, culture are you from?  What were your family circumstances like? What's your relationship
+								with your family? How were you educated?  What were your friends like? did you get into trouble much?
+								If you're supernatural, how early did you learn this?  Were there problems?</p>
+							<label>Phase Aspect</label>
+							<input class="span4" type="text" maxlength="140"/>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Phase Two</legend>
+					<div class="row span12">
+						<h3>Rising Conflict <small>What shaped you?</small></h3>
+					</div>
+					<div class="row">		
+						<div class="span8">
+							<textarea class="field span8" rows="8"></textarea>
+						</div>
+						<div class="span4">
+							<p>Who were the prominent people in your life at this point?  Do you have enemies? Close and fast friends?
+								How did your high concept and trouble aspects shape you and events around you?  What were the most significant
+								choices you made?  What lesson did you learn in this time?</p>
+							<label>Phase Aspect</label>
+							<input class="span4" type="text" maxlength="140"/>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Phase Three</legend>
+					<div class="row span12">
+							<h3>The Story <small>What was your first adventure?</small></h3>
+					</div>
+					<div class="row">		
+						<div class="span8">
+							<textarea class="field span8" rows="8"></textarea>
+						</div>
+						<div class="span4">
+							<label>Story Title</label>
+							<input class="span4" type="text" maxlength="140"/>
+							<label>Guest Starring</label>
+							<input class="span4" type="text" maxlength="140"/>
+							<label>Phase Aspect</label>
+							<input class="span4" type="text" maxlength="140"/>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Phase Four</legend>
+					<div class="row span12">
+							<h3>Guest Star <small>Whose path have you crossed?</small></h3>
+					</div>
+					<div class="row">		
+						<div class="span8">
+							<textarea class="field span8" rows="10"></textarea>
+						</div>
+						<div class="span4">
+							<label>Story Title</label>
+							<input class="span4" type="text" maxlength="140"/>
+							<label>Whose story was this?  Who else was in it?</label>
+							<textarea class="field span4"></textarea>
+							<label>Phase Aspect</label>
+							<input class="span4" type="text" maxlength="140"/>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Phase Five</legend>
+					<div class="row span12">
+						<h3>Guest Star Redux <small>Who else's path have you crossed?</small></h3>
+					</div>
+					<div class="row">		
+						<div class="span8">
+							<textarea class="field span8" rows="10"></textarea>
+						</div>
+						<div class="span4">
+							<label>Story Title</label>
+							<input class="span4" type="text" maxlength="140"/>
+							<label>Whose story was this?  Who else was in it?</label>
+							<textarea class="field span4"></textarea>
+							<label>Phase Aspect</label>
+							<input class="span4" type="text" maxlength="140"/>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="tab-pane" id="skills">
+				<h2>Skills</h2>
+				<fieldset>
+					<legend>Superb (+5)</legend>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</fieldset>
+				<fieldset>
+					<legend>Great (+4)</legend>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</fieldset>
+				<fieldset>
+					<legend>Good (+3)</legend>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</fieldset>
+				<fieldset>
+					<legend>Fair (+2)</legend>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</fieldset>
+				<fieldset>
+					<legend>Average (+1)</legend>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</fieldset>
+			</div>
+			<div class="tab-pane" id="stunts-and-powers">
+				<h2>Stunts &amp; Powers</h2>
+				<table class="table table-striped">
+					<caption>Base Refresh <span id="base-refresh">6</span> Total Spent <span id="total-spent">5</span></caption>
+					<thead>
+						<tr>
+							<th>Cost</th>
+							<th>Ability</th>
+							<th><button class="btn">Find</button></th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+			</div>
+		</div>
 	</div>
-	<div class="row">
-		<span class="span6">
-			<label>Musts</label>
-			<input type="text"/>
-		</span>
-		<span class="span6">
-			<label>Trouble Aspect</label>
-			<input class="span4" type="text" maxlength="140"/>
-		</span>
-	</div>
-	</fieldset>
-	<fieldset class="row">
-		<legend>Phase One</legend>
-		<div class="span12">
-			<div class="row">
-		<h2>Background</h2><h3>Where did you come from?</h3>
-		</div>
-		<div class="row">		
-			<div class="span8">
-			<textarea class="field span8" rows="8"></textarea>
-			</div>
-			<div class="span4">
-				<p>What nation, region, culture are you from?  What were your family circumstances like? What's your relationship
-				with your family? How were you educated?  What were your friends like? did you get into trouble much?
-				If you're supernatural, how early did you learn this?  Were there problems?</p>
-				<label>Phase Aspect</label>
-				<input class="span4" type="text" maxlength="140"/>
-			</div>
-		</div>
-	</fieldset>
-	<fieldset class="row">
-		<legend>Phase Two</legend>
-		<div class="span12">
-			<div class="row">
-		<h2>Rising Conflict</h2><h3>What shaped you?</h3>
-		</div>
-		<div class="row">		
-			<div class="span8">
-			<textarea class="field span8" rows="8"></textarea>
-			</div>
-			<div class="span4">
-				<p>Who were the prominent people in your life at this point?  Do you have enemies? Close and fast friends?
-				How did your high concept and trouble aspects shape you and events around you?  What were the most significant
-				choices you made?  What lesson did you learn in this time?</p>
-				<label>Phase Aspect</label>
-				<input class="span4" type="text" maxlength="140"/>
-			</div>
-		</div>
-	</fieldset>
-	<fieldset class="row">
-		<legend>Phase Three</legend>
-		<div class="span12">
-			<div class="row">
-				<h2>The Story</h2><h3>What was your first adventure?</h3>
-			</div>
-			<div class="row">		
-				<div class="span8">
-					<textarea class="field span8" rows="8"></textarea>
-				</div>
-				<div class="span4">
-					<label>Story Title</label>
-					<input class="span4" type="text" maxlength="140"/>
-					<label>Guest Starring</label>
-					<input class="span4" type="text" maxlength="140"/>
-					<label>Phase Aspect</label>
-					<input class="span4" type="text" maxlength="140"/>
-				</div>
-			</div>
-		</div>
-	</fieldset>
-	<fieldset class="row">
-		<legend>Phase Four</legend>
-		<div class="span12">
-			<div class="row">
-				<h2>Guest Star</h2><h3>Whose path have you crossed?</h3>
-			</div>
-			<div class="row">		
-				<div class="span8">
-					<textarea class="field span8" rows="10"></textarea>
-				</div>
-				<div class="span4">
-					<label>Story Title</label>
-					<input class="span4" type="text" maxlength="140"/>
-					<label>Whose story was this?  Who else was in it?</label>
-					<textarea class="field span4"></textarea>
-					<label>Phase Aspect</label>
-					<input class="span4" type="text" maxlength="140"/>
-				</div>
-			</div>
-		</div>
-	</fieldset>
-	<fieldset class="row">
-		<legend>Phase Five</legend>
-		<div class="span12">
-			<div class="row">
-				<h2>Guest Star Redux</h2><h3>Who else's path have you crossed?</h3>
-			</div>
-			<div class="row">		
-				<div class="span8">
-					<textarea class="field span8" rows="10"></textarea>
-				</div>
-				<div class="span4">
-					<label>Story Title</label>
-					<input class="span4" type="text" maxlength="140"/>
-					<label>Whose story was this?  Who else was in it?</label>
-					<textarea class="field span4"></textarea>
-					<label>Phase Aspect</label>
-					<input class="span4" type="text" maxlength="140"/>
-				</div>
-			</div>
-		</div>
-	</fieldset>
 </form>
