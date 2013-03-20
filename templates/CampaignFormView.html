@@ -2,16 +2,19 @@
 	<h1 class="offset3 span6">Campaign Worksheet</h1>
 </div>
 <div class="row">
-	<form>
+	<form id="campaign-form">
 		<fieldset>
 			<div class="span6">
 				<label>Campaign Name</label>
-				<input type="text"></input>
+				<input name="name" type="text" value="<%= campaign ? campaign.get('name') : '' %>"></input>
 			</div>
 			<div class="span6">
 				<label>City Name</label>
-				<input type="text"></input>
+				<input name="cityName" type="text" value="<%= campaign ?campaing.get('cityName') :''%>"></input>
 			</div>
+		</fieldset>
+		<fieldset>
+			<button type="submit" class="btn">Save</button>
 		</fieldset>
 		<div class="tabbable">
 			<ul class="nav nav-tabs">
@@ -394,6 +397,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> 
 	</form>	
 </div>
