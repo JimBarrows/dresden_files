@@ -32,8 +32,13 @@ $(function() {
 		
 				,listCampaign :function() {
 						this.campaignListView = new CampaignListView();
+						var self = this;
+						this.campaignListView.collection.fetch({
+								success: function( collection, response, options) {
+										self.campaignListView.render();
+								}
+						});
 						$("#content").html( this.campaignListView.el);
-						CampaignList.fetch();
 				}
 
 				,alert : function(message) {
@@ -52,7 +57,7 @@ $(function() {
 				}
 		});
 
-		utils.loadTemplate(['HeaderView', 'AlertListView', 'AlertView', 'InitialView', 'CharacterWorksheetView', 'CampaignListView', 'CampaignFormView'], function() {
+		utils.loadTemplate(['HeaderView', 'AlertListView', 'AlertView', 'InitialView', 'CharacterWorksheetView', 'CampaignView', 'CampaignListView', 'CampaignFormView'], function() {
 				app = new AppRouter();
 				Backbone.history.start();
 		});
