@@ -32,7 +32,11 @@ $.fn.serializeObject = function() {
 
 CampaignFormView = Backbone.View.extend({
 		
-		initialize: function () {
+		successMessage : _.template("Saved campaign <%= name %> in <%= cityname %> at power level <%= powerLevel %>")
+		
+		,errorMessage  :_.template("There was an error saving campaign <%= name %> in <%= cityname %> at power level <%= powerLevel %>.  The error was: <%= error %>")
+		
+		,initialize: function () {
 				this.render();
 		}
 		
@@ -47,13 +51,18 @@ CampaignFormView = Backbone.View.extend({
 		
 		,add : function(e) {
 				var newCampaign = new Campaign( $("#campaign-form").serializeObject());
+				var self = this;
 				newCampaign.create({
 						success: function(model) {
-								app.alertSuccess( 'Saved Campaign {0} in {1} at power level {2}'.format( model.get('name'), model.get('city'), model.get('powerLevel')))
-						},
-						error: function(model, response) {
-								console.debug(response);
-								app.alertError( 'There was an error saving  Campaign {0} in {1} at power level {2}.  The error was {3}'.format( model.get('name'), model.get('city'), model.get('powerLevel'), response))
+								app.alertSuccess( self.successMessage({ name: model.get('name') 
+																									 ,cityname: model.get('cityname')
+																									 ,powerLevel: model.get('powerLevel')}))
+						}
+						, error: function(model, response) {
+								app.alertError( self.errorMessage( { name: model.get('name')
+																								, cityname: model.get('cityname')
+																								, powerLevel:  model.get('powerLevel')
+																								, response: response}))
 						}
 				});
 				return false;
