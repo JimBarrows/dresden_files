@@ -11,6 +11,8 @@ $(function() {
 				,initialize: function () {
 						this.headerView = new HeaderView();
 						$('.header').html(this.headerView.el);
+						this.alertListView = new AlertListView();
+						$("#alerts").html( this.alertListView.el);
 				}
     
 				,index : function() {
@@ -30,12 +32,27 @@ $(function() {
 		
 				,listCampaign :function() {
 						this.campaignListView = new CampaignListView();
-						$("#content").html( this.campaignListView = new CampaignListView().el);
+						$("#content").html( this.campaignListView.el);
 						CampaignList.fetch();
+				}
+
+				,alert : function(message) {
+						this.alertListView.collection.add( new AlertMessage({message: message}));
+				}
+
+				,alertError : function( message) {
+						this.alertListView.collection.add( new AlertMessage({message: message, type: "alert-error"}));
+				}
+
+				,alertSuccess : function( message) {
+						this.alertListView.collection.add( new AlertMessage({message: message, type: "alert-success"}));
+				}
+				,alertInfo : function( message) {
+						this.alertListView.collection.add( new AlertMessage({message: message, type: "alert-info"}));
 				}
 		});
 
-		utils.loadTemplate(['HeaderView', 'InitialView', 'CharacterWorksheetView', 'CampaignListView', 'CampaignFormView'], function() {
+		utils.loadTemplate(['HeaderView', 'AlertListView', 'AlertView', 'InitialView', 'CharacterWorksheetView', 'CampaignListView', 'CampaignFormView'], function() {
 				app = new AppRouter();
 				Backbone.history.start();
 		});
