@@ -1,37 +1,47 @@
 $(function() {
 		CampaignFormView = Backbone.View.extend({
 		
-				successMessage : _.template("Saved campaign <%= name %> in <%= cityname %> at power level <%= powerLevel %>")
+				successMessage : _.template("Saved campaign <%= name %> in <%= cityname %> at power level <%= powerlevel %>")
 		
-				,errorMessage  :_.template("There was an error saving campaign <%= name %> in <%= cityname %> at power level <%= powerLevel %>.  The error was: <%= error %>")
+				,errorMessage  :_.template("There was an error saving campaign <%= name %> in <%= cityname %> at power level <%= powerlevel %>.  The error was: <%= error %>")
 		
 				,initialize: function () {
 						this.render();
 				}
 		
 				,render: function () {
-						$(this.el).html(this.template({campaign:this.model}));
+						$(this.el).html(this.template({campaign:this.model}))
 						return this;
 				}
 		
 				,events: {
-						"submit #campaign-form" : "add"
+						"change"                : "change"
+						,"submit #campaign-form" : "save"
 				}
 		
-				,add : function(e) {
-						var newCampaign = new Campaign( $("#campaign-form").serializeObject());
+				,change : function(event) {
+						var target = event.target;
+						var change = {};
+						change[target.name] = target.value;
+						this.model.set( change);
+				}
+
+				,save : function() {
 						var self = this;
-						newCampaign.create({
+						this.model.save(null, {
 								success: function(model) {
+										app.navigate('campaigns/edit/' + model.id, false);
 										app.alertSuccess( self.successMessage({ name: model.get('name') 
 																														,cityname: model.get('cityname')
-																														,powerLevel: model.get('powerLevel')}))
+																														,powerlevel: model.get('powerlevel')}));
+										self.render();
 								}
-								, error: function(model, response) {
-										app.alertError( self.errorMessage( { name: model.get('name')
-																												 , cityname: model.get('cityname')
-																												 , powerLevel:  model.get('powerLevel')
-																												 , response: response}))
+								,error: function(model, response) {
+										app.alertError(  self.errorMessage( { name: model.get('name')
+																													,cityname: model.get('cityname')
+																													,powerlevel:  model.get('powerlevel')
+																													,response: response}));
+										self.render();
 								}
 						});
 						return false;

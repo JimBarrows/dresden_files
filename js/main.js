@@ -27,7 +27,7 @@ $(function() {
     		}
     	
 				,addCampaign : function () {
-    				this.campaignFormView = new CampaignFormView();
+    				this.campaignFormView = new CampaignFormView({model: new Campaign()});
     				$("#content").html( this.campaignFormView.el);
 				}
 		
