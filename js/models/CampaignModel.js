@@ -3,14 +3,24 @@ $(function () {
 				schemaName: 'campaign'
 				,defaults: function() {
 						return {
-								powerLevel: "Feet in the Water"
+								powerlevel: "feet-in-the-water"
 								,name: "My First Campaign"
-								,cityName: "Metropolis"
+								,cityname: "Metropolis"
 						}
 				}
 		});
 
 		CampaignCollection = StackMob.Collection.extend({
 				model: Campaign
+		});
+
+		Player = StackMob.Model.extend({
+				schemaName: 'player'
+				,defaults:function() {
+						return {
+								name: ""
+								,email: ""
+						}
+				}
 		});
 });

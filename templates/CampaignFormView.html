@@ -10,7 +10,7 @@
 			</div>
 			<div class="span6">
 				<label>City Name</label>
-				<input name="cityName" type="text" value="<%= campaign ?campaing.get('cityName') :''%>"></input>
+				<input name="cityName" type="text" value="<%= campaign ?campaign.get('cityname') :''%>"></input>
 			</div>
 		</fieldset>
 		<fieldset>
@@ -30,19 +30,23 @@
 					<fieldset>
 						<legend>Power Level</legend>
 						<label class="radio">
-			  			<input type="radio" name="powerLevel"  value="feet-in-the-water" checked>
+			  			<input type="radio" name="powerlevel"  value="feet-in-the-water" 
+										 <% campaign ? (campaign.get('powerlevel') == "feet-in-the-water" ? print("checked") : '') : print("checked") %> >
 			  			Feet in the Water <small>6 refresh, 20 skill points, skill cap at Great</small>
 						</label>
 						<label class="radio">
-			  			<input type="radio" name="powerLevel" value="up-to-your-waist">
+			  			<input type="radio" name="powerlevel" value="up-to-your-waist" 
+										 <% campaign ? (campaign.get('powerlevel') == "up-to-your-waist" ? print("checked") : '') : '' %> >
 			  			Up to Your Waist <small>7 refresh, 25 skill points, skill cap at Great</small>
 						</label>
 						<label class="radio">
-			  			<input type="radio" name="powerLevel" value="chest-deep">
+			  			<input type="radio" name="powerlevel" value="chest-deep"  
+										 <% campaign ? (campaign.get('powerlevel') == "chest-deep" ? print("checked") : '') : '' %> >
 			  			Chest Deep <small>8 refresh, 30 skill points, skill cap at Superb</small>
 						</label>
 						<label class="radio">
-			  			<input type="radio" name="powerLevel" value="chest-deep">
+			  			<input type="radio" name="powerlevel" value="submerged" 
+										 <% campaign ? (campaign.get('powerlevel') == "submerged" ? print("checked") : '') : '' %> >
 			  			Submerged <small>10 refresh, 35 skill points, skill cap at Superb</small>
 						</label>
 					</fieldset>

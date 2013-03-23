@@ -10,7 +10,7 @@ $(function() {
 				}
 		
 				,render: function () {
-						$(this.el).html(this.template({campaign:null}));
+						$(this.el).html(this.template({campaign:this.model}));
 						return this;
 				}
 		

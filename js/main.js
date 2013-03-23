@@ -6,6 +6,7 @@ $(function() {
 						,"campaigns"        : "listCampaign"
 						,"characters/add"   : "addCharacter"
 						,"campaigns/add"    : "addCampaign"
+						,"campaigns/edit/:id" : "editCampaign"
 				}
 				
 				,initialize: function () {
@@ -39,6 +40,22 @@ $(function() {
 								}
 						});
 						$("#content").html( this.campaignListView.el);
+				}
+
+				,editCampaign :function( id) {
+						var campaign = new Campaign({campaign_id: id});
+						var self = this;
+						campaign.fetch({
+								success: function(model, response, options){
+										self.campaignFormView = new CampaignFormView({model :model});
+										$("#content").html( self.campaignFormView.el);
+								}
+
+								,error: function(model, repsonse, options){
+										app.alertError( "Could not retrieve model: " + model ?  model.toJSON() : "null" + " because " + response);
+								}
+						});
+						this.headerView.selectMenuItem();
 				}
 
 				,alert : function(message) {
