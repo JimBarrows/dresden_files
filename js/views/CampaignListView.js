@@ -1,11 +1,21 @@
-CampaignListView = Backbone.View.extend({
+$(function() {
+		CampaignListView = Backbone.View.extend({
+		
+				collection : new CampaignCollection()
+				
+				,initialize: function () {
+						this.collection.bind('reset', this.render, this);
+						this.collection.bind('add', this.render, this);
+				}
 
-	initialize: function () {
-		this.render();
-		}
-
-	,render: function () {
-		$(this.el).html(this.template());
-    return this;
-		}
+				,render: function () {
+						$(this.el).html(this.template());
+						this.collection.each(function( campaign) {
+								var view = new CampaignView({model: campaign});
+								view.render();
+								$("#campaign").append(view.el);
+								return this;
+						});
+				}
+		});
 });
