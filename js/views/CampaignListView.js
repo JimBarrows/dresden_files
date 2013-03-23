@@ -6,6 +6,8 @@ $(function() {
 				,initialize: function () {
 						this.collection.bind('reset', this.render, this);
 						this.collection.bind('add', this.render, this);
+						this.collection.bind('sync', this.render, this);
+						this.collection.bind('remove', this.render, this);
 				}
 
 				,render: function () {
