@@ -20,6 +20,8 @@ $(function () {
 						return {
 								name: ""
 								,email: ""
+								,charactername: ""
+								,template: ""
 						}
 				}
 		});

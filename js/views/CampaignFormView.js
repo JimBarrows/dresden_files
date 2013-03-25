@@ -10,7 +10,14 @@ $(function() {
 				}
 		
 				,render: function () {
-						$(this.el).html(this.template({campaign:this.model}))
+						$(this.el).html(this.template({campaign:this.model}));
+						var self = this;
+						this.model.get('players').forEach( function( player){
+								var view = new PlayerRowView( {player_id: player});
+								view.render();
+								console.log( $("#playersTable"));
+								self.$el.find("#playersTable").append( view.el);
+						});
 						return this;
 				}
 		

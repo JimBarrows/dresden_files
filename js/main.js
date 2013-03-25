@@ -7,6 +7,7 @@ $(function() {
 						,"characters/add"   : "addCharacter"
 						,"campaigns/add"    : "addCampaign"
 						,"campaigns/edit/:id" : "editCampaign"
+						,"campaigns/players/add" : "addPlayer"
 				}
 				
 				,initialize: function () {
@@ -29,6 +30,11 @@ $(function() {
 				,addCampaign : function () {
     				this.campaignFormView = new CampaignFormView({model: new Campaign()});
     				$("#content").html( this.campaignFormView.el);
+				}
+
+				,addPlayer : function () {
+    				this.playerFormView = new PlayerFormView({model: new Player()});
+    				$("#content").html( this.playerFormView.el);
 				}
 		
 				,listCampaign :function() {
@@ -74,7 +80,7 @@ $(function() {
 				}
 		});
 
-		utils.loadTemplate(['HeaderView', 'AlertListView', 'AlertView', 'InitialView', 'CharacterWorksheetView', 'CampaignView', 'CampaignListView', 'CampaignFormView'], function() {
+		utils.loadTemplate(['HeaderView', 'AlertListView', 'AlertView', 'InitialView', 'CharacterWorksheetView', 'PlayerFormView', 'PlayerRowView', 'CampaignView', 'CampaignListView', 'CampaignFormView'], function() {
 				app = new AppRouter();
 				Backbone.history.start();
 		});

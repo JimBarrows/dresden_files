@@ -1,0 +1,36 @@
+<div class="row page-header">
+	<h1 class="offset3 span6">Add Player</h1>
+</div>
+<div class="row">
+	<form id="player-form">
+		<fieldset>
+			<div class="control-group">
+				<label for="name" class="control-label">Player Name</label>
+				<div class="controls">
+					<input name="name" type="text" value="<%= player ? player.get('name') :'' %>"></input>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="email" class="control-label">Player Email</label>
+				<div class="controls">
+					<input name="email" type="email" value="<%= player ? player.get('email') :'' %>"></input>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="charactername" class="control-label">CharacterName</label>
+				<div class="controls">
+					<input name="charactername" type="text" value="<%= player ? player.get('charactername') :'' %>"></input>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="template" class="control-label">Character Template</label>
+				<div class="controls">
+					<input name="template" type="text" value="<%= player ? player.get('template') :'' %>"></input>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<button type="submit" class="btn">Save</button>
+		</fieldset>
+	</form>
+</div>
