@@ -6,7 +6,6 @@ $(function() {
 						var self = this;
 						this.model.fetch({
 								success: function( model) {
-										console.log("success: " + model.toJSON());
 										$(self.el).html(self.template({player: self.model}));
 								}
 

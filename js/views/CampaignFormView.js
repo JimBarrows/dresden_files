@@ -5,7 +5,13 @@ $(function() {
 		
 				,errorMessage  :_.template("There was an error saving campaign <%= name %> in <%= cityname %> at power level <%= powerlevel %>.  The error was: <%= error %>")
 		
+				,currentTab : '#powerLevelTab'
+
 				,initialize: function () {
+/*						this.$('#campaignTabs a').click(function (e) {
+								e.preventDefault();
+								$(this).tab('show');
+						})*/
 						this.render();
 				}
 		
@@ -15,15 +21,18 @@ $(function() {
 						this.model.get('players').forEach( function( player){
 								var view = new PlayerRowView( {player_id: player});
 								view.render();
-								console.log( $("#playersTable"));
-								self.$el.find("#playersTable").append( view.el);
+								self.$("#playersTable").append( view.el);
 						});
+					
+					//	var foo = this.$("#campaignTabs a[href='#powerLevel']");
+						//		foo.tab('show');
 						return this;
 				}
 		
 				,events: {
 						"change"                : "change"
 						,"submit #campaign-form" : "save"
+						,"click #playersTab" : "playersTab"
 				}
 		
 				,change : function(event) {
@@ -33,7 +42,7 @@ $(function() {
 						this.model.set( change);
 				}
 
-				,save : function() {
+				,save : function(event) {
 						var self = this;
 						this.model.save(null, {
 								success: function(model) {
@@ -51,6 +60,14 @@ $(function() {
 										self.render();
 								}
 						});
+						event.preventDefault();
+						return false;
+				}
+			
+				,playersTab : function(event) {
+						this.currentTab = '#playersTab';
+						this.$(this.currentTab).tab('show');
+						event.preventDefault();						
 						return false;
 				}
 		});

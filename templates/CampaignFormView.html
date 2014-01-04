@@ -16,17 +16,17 @@
 		<fieldset>
 			<button type="submit" class="btn">Save</button>
 		</fieldset>
-		<div class="tabbable">
+		<div id="campaignTabs" class="tabbable">
 			<ul class="nav nav-tabs">
-	  		<li class="active"><a href="#tab1" data-toggle="tab">Power Level</a></li>
-	  		<li><a href="#tab2" data-toggle="tab">Players</a></li>
-	  		<li><a href="#tab3" data-toggle="tab">Themes &amp; Threats</a></li>
-				<li><a href="#tab4" data-toggle="tab">Balance of Power</a></li>
-	  		<li><a href="#tab5" data-toggle="tab">Locations</a></li>
-	  		<li><a href="#tab6" data-toggle="tab">Faces</a></li>
+	  		<li><a id="powerLevelTab" href="#powerLevel" data-toggle="tab">Power Level</a></li>
+	  		<li><a id="playersTab" href="#players" data-toggle="tab">Players</a></li>
+	  		<li><a id="themsAndThreatsTab" href="#themesAndThreats" data-toggle="tab">Themes &amp; Threats</a></li>
+				<li><a id="balanceOfPowerTab" href="#balanceOfPower" data-toggle="tab">Balance of Power</a></li>
+	  		<li><a id="locationsTab" href="#locations" data-toggle="tab">Locations</a></li>
+	  		<li><a id="facesTab" href="#faces" data-toggle="tab">Faces</a></li>
 			</ul>
 			<div class="tab-content">
-		    <div class="tab-pane active" id="tab1">
+		    <div class="tab-pane" id="powerLevel">
 					<fieldset>
 						<legend>Power Level</legend>
 						<label class="radio">
@@ -51,26 +51,27 @@
 						</label>
 					</fieldset>
 				</div>
-				<div class="tab-pane" id="tab2">
-					<h2>Players</h2>
-					<input type="text" class="input-medium search-query"><button type="submit" class="btn btn-primary">Search</button>
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>Player</th>
-								<th>Email</th>
-								<th>Character</th>
-								<th>Template</th>
-								<th>			  		
-			  					<a href="#campaigns/players/add" id="addPlayerButton" type="button" class="btn">Add</button>
-								</th>
-						</thead>
-						<tbody id="playersTable">
-						</tbody>
-					</table>
-					<div id="playerFormView"></div>
+				<div class="tab-pane" id="players">
+					<fieldset>
+						<legend>Players</legend>
+						<input type="text" class="input-medium search-query"><button type="submit" class="btn btn-primary">Search</button>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Player</th>
+									<th>Email</th>
+									<th>Character</th>
+									<th>Template</th>
+									<th>			  		
+			  						<a href="#campaigns/players/add" id="addPlayerButton" type="button" class="btn">Add</a>
+									</th>
+							</thead>
+							<tbody id="playersTable">
+							</tbody>
+						</table>
+					</fieldset>
 				</div>
-				<div class="tab-pane" id="tab3">
+				<div class="tab-pane" id="themesAndThreats">
 					<fieldset>
 						<legend>City-Wide Themes & Threats</legend>
 							<div class="span4">
@@ -177,7 +178,7 @@
 							</div>
 					</fieldset>
 				</div>
-				<div class="tab-pane" id="tab4">
+				<div class="tab-pane" id="balanceOfPower">
 					<fieldset>
 						<legend>The Balance of Power</legend>
 						<div class="row">
@@ -228,179 +229,169 @@
 						</div>
 					</fieldset>
 				</div>
-				<div class="tab-pane" id="tab5">
-					<div class="row">
-						<div class="span12">
-							<h2>Locations</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="span4">
-							<label>Name</label>
-							<input type="text" class="span3"/>
-							<label>Description</label>
-							<textarea class="span3" rows="10"></textarea>
-							<span class="span4">
-								<label class="radio inline">
-									<input type="radio" name="theme-or-threat-1" value="theme">
-									Theme
-								</label>
-								<label class="radio inline">
-									<input type="radio" name="theme-or-threat-1" value="theme">
-									Threat
-								</label>
-							</span>
-							<label>The <b>Idea</b></label>
-							<input type="text" class="span3"/>
-							<table class="table table-striped">
-								<caption>The Face</caption>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Concept</th>
-									</tr>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
-						</div>
-						<div class="span4">
-							<label>Name</label>
-							<input type="text" class="span3"/>
-							<label>Description</label>
-							<textarea class="span3" rows="10"></textarea>
-							<span class="span4">
-								<label class="radio inline">
-									<input type="radio" name="theme-or-threat-1" value="theme">
-									Theme
-								</label>
-								<label class="radio inline">
-									<input type="radio" name="theme-or-threat-1" value="theme">
-									Threat
-								</label>
-							</span>
-							<label>The <b>Idea</b></label>
-							<input type="text" class="span3"/>
-							<table class="table table-striped">
-								<caption>The Face</caption>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Concept</th>
-									</tr>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
-						</div>
-						<div class="span4">
-							<label>Name</label>
-							<input type="text" class="span3"/>
-							<label>Description</label>
-							<textarea class="span3" rows="10"></textarea>
-							<span class="span4">
-								<label class="radio inline">
-									<input type="radio" name="theme-or-threat-1" value="theme">
-									Theme
-								</label>
-								<label class="radio inline">
-									<input type="radio" name="theme-or-threat-1" value="theme">
-									Threat
-								</label>
-							</span>
-							<label>The <b>Idea</b></label>
-							<input type="text" class="span3"/>
-							<table class="table table-striped">
-								<caption>The Face</caption>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Concept</th>
-									</tr>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
-						</div>
-					</div>
+				<div class="tab-pane" id="locations">
+					<fieldset>
+							<legend>Locations</legend>
+							<div class="row">
+								<div class="span4">
+									<label>Name</label>
+									<input type="text" class="span3"/>
+									<label>Description</label>
+									<textarea class="span3" rows="10"></textarea>
+									<span class="span4">
+										<label class="radio inline">
+											<input type="radio" name="theme-or-threat-1" value="theme">
+											Theme
+										</label>
+										<label class="radio inline">
+											<input type="radio" name="theme-or-threat-1" value="theme">
+											Threat
+										</label>
+									</span>
+									<label>The <b>Idea</b></label>
+									<input type="text" class="span3"/>
+									<table class="table table-striped">
+										<caption>The Face</caption>
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Concept</th>
+											</tr>
+										</thead>
+										<tbody>									
+										</tbody>
+									</table>
+								</div>
+								<div class="span4">
+									<label>Name</label>
+									<input type="text" class="span3"/>
+									<label>Description</label>
+									<textarea class="span3" rows="10"></textarea>
+									<span class="span4">
+										<label class="radio inline">
+											<input type="radio" name="theme-or-threat-1" value="theme">
+											Theme
+										</label>
+										<label class="radio inline">
+											<input type="radio" name="theme-or-threat-1" value="theme">
+											Threat
+										</label>
+									</span>
+									<label>The <b>Idea</b></label>
+									<input type="text" class="span3"/>
+									<table class="table table-striped">
+										<caption>The Face</caption>
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Concept</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+								<div class="span4">
+									<label>Name</label>
+									<input type="text" class="span3"/>
+									<label>Description</label>
+									<textarea class="span3" rows="10"></textarea>
+									<span class="span4">
+										<label class="radio inline">
+											<input type="radio" name="theme-or-threat-1" value="theme">
+											Theme
+										</label>
+										<label class="radio inline">
+											<input type="radio" name="theme-or-threat-1" value="theme">
+											Threat
+										</label>
+									</span>
+									<label>The <b>Idea</b></label>
+									<input type="text" class="span3"/>
+									<table class="table table-striped">
+										<caption>The Face</caption>
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Concept</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+					</fieldset>
 				</div>
-				<div class="tab-pane" id="tab6">
-					<div class="row">
-						<div class="span12">
-							<h2>Faces</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="span4">
-							<label><b>Name</b></label>
-							<input type="text" class="span4"/>
-							<label>is <b>The Face of</b></label>
-							<input type="text" class="span4"/>
-							<label>with the <b>High Concept</b></label>
-							<input type="text" class="span4"/>
-							<label>and <b>Motivation</b></label>
-							<textarea class="span4" rows="10"/>
-							<table class="span3 table table-striped">
-								<caption>with these <b>Relationshipos</b></caption>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Concept</th>
-									</tr>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
-						</div>
-						<div class="span4">
-							<label><b>Name</b></label>
-							<input type="text" class="span4"/>
-							<label>is <b>The Face of</b></label>
-							<input type="text" class="span4"/>
-							<label>with the <b>High Concept</b></label>
-							<input type="text" class="span4"/>
-							<label>and <b>Motivation</b></label>
-							<textarea class="span4" rows="10"/>
-							<table class="span3 table table-striped">
-								<caption>with these <b>Relationshipos</b></caption>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Concept</th>
-									</tr>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
-						</div>
-						<div class="span4">
-							<label><b>Name</b></label>
-							<input type="text" class="span4"/>
-							<label>is <b>The Face of</b></label>
-							<input type="text" class="span4"/>
-							<label>with the <b>High Concept</b></label>
-							<input type="text" class="span4"/>
-							<label>and <b>Motivation</b></label>
-							<textarea class="span4" rows="10"/>
-							<table class="span3 table table-striped">
-								<caption>with these <b>Relationshipos</b></caption>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Concept</th>
-									</tr>
-								</thead>
-								<tbody>
-									
-								</tbody>
-							</table>
-						</div>
-					</div>
+				<div class="tab-pane" id="faces">
+					<fieldset>
+							<legend>Faces</legend>
+							<div class="row">
+								<div class="span4">
+									<label><b>Name</b></label>
+									<input type="text" class="span4"/>
+									<label>is <b>The Face of</b></label>
+									<input type="text" class="span4"/>
+									<label>with the <b>High Concept</b></label>
+									<input type="text" class="span4"/>
+									<label>and <b>Motivation</b></label>
+									<textarea class="span4" rows="10"/>
+									<table class="span3 table table-striped">
+										<caption>with these <b>Relationshipos</b></caption>
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Concept</th>
+											</tr>
+										</thead>
+										<tbody>											
+										</tbody>
+									</table>
+								</div>
+								<div class="span4">
+									<label><b>Name</b></label>
+									<input type="text" class="span4"/>
+									<label>is <b>The Face of</b></label>
+									<input type="text" class="span4"/>
+									<label>with the <b>High Concept</b></label>
+									<input type="text" class="span4"/>
+									<label>and <b>Motivation</b></label>
+									<textarea class="span4" rows="10"/>
+									<table class="span3 table table-striped">
+										<caption>with these <b>Relationshipos</b></caption>
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Concept</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+								<div class="span4">
+									<label><b>Name</b></label>
+									<input type="text" class="span4"/>
+									<label>is <b>The Face of</b></label>
+									<input type="text" class="span4"/>
+									<label>with the <b>High Concept</b></label>
+									<input type="text" class="span4"/>
+									<label>and <b>Motivation</b></label>
+									<textarea class="span4" rows="10"/>
+									<table class="span3 table table-striped">
+										<caption>with these <b>Relationshipos</b></caption>
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Concept</th>
+											</tr>
+										</thead>
+										<tbody>									
+										</tbody>
+									</table>
+								</div>
+							</div>
+					</fieldset>
 				</div>
 			</div>
 		</div> 
